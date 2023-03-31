@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import api from '../../services/api'
+import './Movie.scss'
 
 const Movie = () => {
   const { id } = useParams()
@@ -36,7 +37,7 @@ const Movie = () => {
 
   return (
     <div className="movie">
-      <h1>{title}</h1>
+      <h1 className="movie__title">{title}</h1>
       <img
         src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
         alt={title}
@@ -44,7 +45,13 @@ const Movie = () => {
       />
       <h3>Sinopse</h3>
       <span>{overview}</span>
-      <strong>Avaliacao: {vote_average} / 10</strong>
+      <strong className="movie__average">Avaliação: {vote_average} / 10</strong>
+      <div className="movie__buttons">
+        <button>Salvar</button>
+        <button>
+          <a>Trailer</a>
+        </button>
+      </div>
     </div>
   )
 }
