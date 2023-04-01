@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import api from '../../services/api'
 import './Movie.scss'
 
 const Movie = () => {
   const { id } = useParams()
+  const navigate = useNavigate()
   const [movie, setMovie] = useState({})
   const [loading, setLoading] = useState(true)
 
@@ -21,13 +22,16 @@ const Movie = () => {
           setMovie(data)
           setLoading(false)
         })
-        .catch(() => {})
+        .catch(() => {
+          navigate('/', { replace: true })
+          return
+        })
     }
 
     loadMovie()
 
     return () => {}
-  }, [])
+  }, [navigate, id])
 
   if (loading) {
     return <section className="loading">Carregando detalhes...</section>
@@ -49,7 +53,7 @@ const Movie = () => {
       <div className="movie__buttons">
         <button>Salvar</button>
         <button>
-          <a>Trailer</a>
+          <a href="#">Trailer</a>
         </button>
       </div>
     </div>
