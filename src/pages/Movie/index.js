@@ -53,7 +53,13 @@ const Movie = () => {
       <div className="movie__buttons">
         <button>Salvar</button>
         <button>
-          <a href="#">Trailer</a>
+          <a
+            href={`https://www.youtube.com/results?search_query=${title} trailer`}
+            target="_blank"
+            rel="external noreferrer"
+          >
+            Trailer
+          </a>
         </button>
       </div>
     </div>
