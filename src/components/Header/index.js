@@ -6,7 +6,7 @@ const Header = () => (
     <Link className="header__link header__logo" to="/">
       Prime Flix
     </Link>
-    <Link className="header__link header__favorites" to="/favoritos">
+    <Link className="header__link header__favorites" to="/favorites">
       Meus filmes
     </Link>
   </header>
