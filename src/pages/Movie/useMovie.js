@@ -33,11 +33,19 @@ const useMovie = () => {
   }, [navigate, id])
 
   const saveMovie = () => {
-    // const myList = localStorage.getItem('movies')
-    // let savedMovies = JSON.parse(myList) || []
-    // const hasMovie = savedMovies.some((savedMovie) => {
-    //   savedMovie.id === movie.id
-    // })
+    const myList = localStorage.getItem('movies')
+    let savedMovies = JSON.parse(myList) || []
+    const hasMovie = savedMovies.some(({ id }) => {
+      id === movie.id
+    })
+
+    if (hasMovie) {
+      alert('esse filme já está na lista')
+      return
+    }
+    savedMovies.push(movie)
+    localStorage.setItem('movies', JSON.stringify(savedMovies))
+    alert('filme salvo com sucesso')
   }
 
   return { saveMovie, loading, movie }
