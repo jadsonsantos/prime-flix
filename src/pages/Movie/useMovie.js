@@ -43,6 +43,7 @@ const useMovie = () => {
       alert('esse filme já está na lista')
       return
     }
+
     savedMovies.push(movie)
     localStorage.setItem('movies', JSON.stringify(savedMovies))
     alert('filme salvo com sucesso')

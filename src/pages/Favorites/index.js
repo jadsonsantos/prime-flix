@@ -3,13 +3,14 @@ import useFavorites from './useFavorites'
 import { Link } from 'react-router-dom'
 
 const Favorites = () => {
-  const { movies } = useFavorites()
+  const { movies, deleteMovie } = useFavorites()
 
   if (!movies) return <h1>Não há filmes salvos</h1>
 
   return (
     <section className="favorites">
       <h1 className="favorites__title">Meus filmes</h1>
+      {movies.length === 0 && <p>Você não possui filmes salvos :(</p>}
       <ul className="favorites__list">
         {movies.map(({ title, id }) => {
           return (
@@ -19,7 +20,12 @@ const Favorites = () => {
                 <Link className="favorites__link" to={`/movie/${id}`}>
                   Ver detalhes
                 </Link>
-                <button className="favorites__button">Excluir</button>
+                <button
+                  className="favorites__button"
+                  onClick={() => deleteMovie(id)}
+                >
+                  Excluir
+                </button>
               </div>
             </li>
           )

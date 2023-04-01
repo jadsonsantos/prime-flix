@@ -8,7 +8,16 @@ const useFavorites = () => {
     setMovies(JSON.parse(myList || []))
   }, [])
 
-  return { movies }
+  const deleteMovie = (id) => {
+    let moviesFilter = movies.filter((item) => {
+      return item.id !== id
+    })
+
+    setMovies(moviesFilter)
+    localStorage.setItem('movies', JSON.stringify(moviesFilter))
+  }
+
+  return { movies, deleteMovie }
 }
 
 export default useFavorites
