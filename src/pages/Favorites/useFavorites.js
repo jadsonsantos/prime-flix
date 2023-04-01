@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 const useFavorites = () => {
   const [movies, setMovies] = useState()
@@ -15,6 +16,7 @@ const useFavorites = () => {
 
     setMovies(moviesFilter)
     localStorage.setItem('movies', JSON.stringify(moviesFilter))
+    toast.success('filme removido com sucesso')
   }
 
   return { movies, deleteMovie }

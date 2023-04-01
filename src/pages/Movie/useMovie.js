@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import api from '../../services/api'
+import { toast } from 'react-toastify'
 
 const useMovie = () => {
   const { id } = useParams()
@@ -40,13 +41,13 @@ const useMovie = () => {
     })
 
     if (hasMovie) {
-      alert('esse filme já está na lista')
+      toast.warning('esse filme já está na lista')
       return
     }
 
     savedMovies.push(movie)
     localStorage.setItem('movies', JSON.stringify(savedMovies))
-    alert('filme salvo com sucesso')
+    toast.success('filme salvo com sucesso')
   }
 
   return { saveMovie, loading, movie }
