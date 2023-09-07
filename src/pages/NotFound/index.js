@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import './NotFound.scss'
+import React from 'react'
 
 const NotFound = () => (
   <section className="not-found">

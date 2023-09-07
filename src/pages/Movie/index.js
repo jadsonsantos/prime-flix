@@ -1,5 +1,6 @@
 import './Movie.scss'
 import useMovie from './useMovie'
+import React from 'react'
 
 const Movie = () => {
   const { saveMovie, loading, movie } = useMovie()

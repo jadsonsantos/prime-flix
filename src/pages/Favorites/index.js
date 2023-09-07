@@ -1,6 +1,7 @@
 import './Favorites.scss'
 import useFavorites from './useFavorites'
 import { Link } from 'react-router-dom'
+import React from 'react'
 
 const Favorites = () => {
   const { movies, deleteMovie } = useFavorites()
