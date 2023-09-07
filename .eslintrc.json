@@ -13,7 +13,7 @@
       "sourceType": "module"
   },
   "plugins": [
-      "react"
+      // "react"
       // "simple-import-sort"
   ],
   "rules": {
