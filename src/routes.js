@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Movie from './pages/Movie'
 import NotFound from './pages/NotFound'
 import Favorites from './pages/Favorites'
+import React from 'react'
 
 const RoutesApp = () => (
   <BrowserRouter>
