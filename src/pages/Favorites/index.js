@@ -6,7 +6,7 @@ import React from 'react'
 const Favorites = () => {
   const { movies, deleteMovie } = useFavorites()
 
-  if (!movies) return <h1>Não há filmes salvos</h1>
+  if (!movies) return <h1 className="favorites__title">Não há filmes salvos</h1>
 
   return (
     <section className="favorites">

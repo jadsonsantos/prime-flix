@@ -6,7 +6,7 @@ const useFavorites = () => {
 
   useEffect(() => {
     const myList = localStorage.getItem('movies')
-    setMovies(JSON.parse(myList || []))
+    if (myList) setMovies(JSON.parse(myList || []))
   }, [])
 
   const deleteMovie = (id) => {
