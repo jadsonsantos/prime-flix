@@ -21,7 +21,9 @@ const Movie = () => {
       />
       <h3>Sinopse</h3>
       <span>{overview}</span>
-      <strong className="movie__average">Avaliação: {vote_average} / 10</strong>
+      <strong className="movie__average">
+        Avaliação: {vote_average.toFixed(1)} / 10
+      </strong>
       <div className="movie__buttons">
         <button onClick={saveMovie}>Salvar</button>
         <button>
