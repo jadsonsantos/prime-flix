@@ -27,10 +27,14 @@
 
   &__actions {
     display: flex;
+    align-items: center;
     gap: 16px;
   }
 
   &__link {}
 
-  &__button {}
+  &__button {
+    padding: 12px;
+    border-radius: 4px;
+  }
 }
