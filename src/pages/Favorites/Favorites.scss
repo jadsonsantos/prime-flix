@@ -1,5 +1,6 @@
 .favorites {
   margin-top: 24px;
+  padding: 0 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +10,8 @@
   }
 
   &__list {
-    width: 720px;
+    width: 100%;
+    max-width: 720px;
   }
 
   &__item {
