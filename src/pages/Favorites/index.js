@@ -16,7 +16,7 @@ const Favorites = () => {
         {movies.map(({ title, id }) => {
           return (
             <li className="favorites__item" key={id}>
-              <p>{title}</p>
+              <p className="favorites__movie-title">{title}</p>
               <div className="favorites__actions">
                 <Link className="favorites__link" to={`/movie/${id}`}>
                   Ver detalhes
