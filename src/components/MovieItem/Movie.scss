@@ -1,0 +1,30 @@
+.movie {
+  background-color: white;
+  border-radius: 4px;
+
+  &__title {
+    margin-bottom: 14px;
+    text-align: center;
+    font-size: 22px;
+    display: block;
+  }
+
+  &__image {
+    max-width: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+  }
+
+  &__link {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    background-color: #116feb;
+    border-radius: 0 0 8px 8px;
+  }
+}
