@@ -40,7 +40,8 @@
       "eol-last": [
           "error",
           "always"
-      ]
+      ],
+      "react/react-in-jsx-scope": "off"
       // "simple-import-sort/imports": "error",
       // "simple-import-sort/exports": "error"
   }
