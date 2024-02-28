@@ -1,3 +1,4 @@
+import { formateDate } from 'utils'
 import './Movie.scss'
 import useMovie from './useMovie'
 import React from 'react'
@@ -9,7 +10,15 @@ const Movie = () => {
     return <section className="loading">Carregando detalhes...</section>
   }
 
-  const { title, backdrop_path, overview, vote_average } = movie
+  const {
+    title,
+    backdrop_path,
+    overview,
+    vote_average,
+    release_date,
+    original_title,
+    genres,
+  } = movie
 
   return (
     <div className="movie">
@@ -19,6 +28,10 @@ const Movie = () => {
         alt={title}
         className="movie__image"
       />
+      <span>{original_title}</span> | <span>{formateDate(release_date)}</span> |
+      {genres.map((genre) => (
+        <span key={genre.id}> {genre.name}, </span>
+      ))}
       <h3>Sinopse</h3>
       <span>{overview}</span>
       <strong className="movie__average">
