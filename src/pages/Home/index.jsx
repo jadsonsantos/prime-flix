@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 import './Home.scss'
-import React from 'react'
 import useHome from './useHome'
+import Loading from 'components/Loading'
 
 const Home = () => {
   const { loading, movies } = useHome()
 
   if (loading) {
-    return <section className="loading">Carregando filmes...</section>
+    return <Loading text="Carregando filmes..." />
   }
 
   return (
