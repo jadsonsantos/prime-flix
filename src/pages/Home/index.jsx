@@ -11,11 +11,10 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <div className="movies">
         {movies.map(({ title, id, poster_path }) => (
-          <article key={id} className="movies__item movie">
-            <strong className="movie__title">{title}</strong>
+          <article key={id} className="movies__item">
             <Link to={`/movie/${id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/original/${poster_path}`}
