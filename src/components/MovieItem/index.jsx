@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
 import { Link } from 'react-router-dom'
 import './Movie.scss'
 
@@ -10,6 +9,7 @@ const MovieItem = ({ movie }) => {
         <img
           src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
           alt={movie.title}
+          title={movie.title}
           className="movie__image"
           width={300}
           height={450}
