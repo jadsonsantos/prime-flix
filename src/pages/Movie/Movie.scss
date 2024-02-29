@@ -30,22 +30,29 @@
   }
 
   &__buttons {
-    button {
-      margin: 14px 12px 0 0;
-      outline: none;
-      padding: 12px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 20px;
-      transition: all .5s;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
 
-      &:hover {
-        background-color: brown;
-        color: white;
-      }
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    outline: none;
+    border-radius: 4px;
+    font-size: 20px;
+    transition: all .5s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: brown;
+      color: white;
     }
 
-    a {
+    &--link {
       text-decoration: none;
       color: black;
       transition: all .5s;

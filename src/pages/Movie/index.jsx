@@ -62,16 +62,17 @@ const Movie = () => {
           ))}
         </p>
         <div className="movie__buttons">
-          <button onClick={saveMovie}>Salvar</button>
-          <button>
-            <a
-              href={`https://www.youtube.com/results?search_query=${title} trailer`}
-              target="_blank"
-              rel="external noreferrer"
-            >
-              Trailer
-            </a>
+          <button className="movie__button" onClick={saveMovie}>
+            Salvar
           </button>
+          <a
+            className="movie__button movie__button--link"
+            href={`https://www.youtube.com/results?search_query=${title} trailer`}
+            target="_blank"
+            rel="external noreferrer"
+          >
+            Trailer
+          </a>
         </div>
       </div>
     </section>
