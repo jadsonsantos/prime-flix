@@ -26,53 +26,55 @@ const Movie = () => {
   } = movie
 
   return (
-    <div className="movie">
-      <h1 className="movie__title">{title}</h1>
-      <img
-        src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
-        alt={title}
-        className="movie__image"
-        width={800}
-        height={450}
-      />
-      <h3>Sinopse</h3>
-      <p>{overview}</p>
-      {tagline && <p>Slogan: {tagline}</p>}
-      <h3>Detalhes</h3>
-      <p>Título original: {original_title}</p>
-      <p>Data de lançamento: {formateDate(release_date)}</p>
-      <p>Duração: {runtime} minutos</p>{' '}
-      <p>
-        Países de origem:{' '}
-        {production_countries.map((item) => (
-          <span key={item.name}>{item.name} | </span>
-        ))}
-      </p>
-      {budget > 0 && <p>Budget: {formatCurrency(budget)}</p>}
-      <p className="movie__average">
-        Avaliação: {vote_average.toFixed(1)} / 10
-      </p>
-      <p>
-        Gêneros:
-        {genres.map((genre) => (
-          <span key={genre.id} className="movie__genre">
-            {genre.name}
-          </span>
-        ))}
-      </p>
-      <div className="movie__buttons">
-        <button onClick={saveMovie}>Salvar</button>
-        <button>
-          <a
-            href={`https://www.youtube.com/results?search_query=${title} trailer`}
-            target="_blank"
-            rel="external noreferrer"
-          >
-            Trailer
-          </a>
-        </button>
+    <section className="movie-page">
+      <div className="movie">
+        <h1 className="movie__title">{title}</h1>
+        <img
+          src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
+          alt={title}
+          className="movie__image"
+          width={800}
+          height={450}
+        />
+        <h3>Sinopse</h3>
+        <p>{overview}</p>
+        {tagline && <p>Slogan: {tagline}</p>}
+        <h3>Detalhes</h3>
+        <p>Título original: {original_title}</p>
+        <p>Data de lançamento: {formateDate(release_date)}</p>
+        <p>Duração: {runtime} minutos</p>{' '}
+        <p>
+          Países de origem:{' '}
+          {production_countries.map((item) => (
+            <span key={item.name}>{item.name} | </span>
+          ))}
+        </p>
+        {budget > 0 && <p>Budget: {formatCurrency(budget)}</p>}
+        <p className="movie__average">
+          Avaliação: {vote_average.toFixed(1)} / 10
+        </p>
+        <p>
+          Gêneros:
+          {genres.map((genre) => (
+            <span key={genre.id} className="movie__genre">
+              {genre.name}
+            </span>
+          ))}
+        </p>
+        <div className="movie__buttons">
+          <button onClick={saveMovie}>Salvar</button>
+          <button>
+            <a
+              href={`https://www.youtube.com/results?search_query=${title} trailer`}
+              target="_blank"
+              rel="external noreferrer"
+            >
+              Trailer
+            </a>
+          </button>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 

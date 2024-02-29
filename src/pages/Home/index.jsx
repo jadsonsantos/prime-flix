@@ -11,7 +11,7 @@ const Home = () => {
   }
 
   return (
-    <div className="container">
+    <div className="home container">
       <div className="movies">
         {movies.map((movie) => (
           <MovieItem movie={movie} key={movie.id} />

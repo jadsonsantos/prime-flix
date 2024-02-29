@@ -11,6 +11,8 @@ const MovieItem = ({ movie }) => {
           src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
           alt={movie.title}
           className="movie__image"
+          width={300}
+          height={450}
         />
       </Link>
       <Link to={`/movie/${movie.id}`} className="movie__link">
