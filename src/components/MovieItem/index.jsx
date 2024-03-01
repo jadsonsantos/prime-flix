@@ -4,7 +4,7 @@ import './Movie.scss'
 
 const MovieItem = ({ movie }) => {
   return (
-    <article key={movie.id} className="movies__item">
+    <article key={movie.id} className="movie">
       <Link to={`/movie/${movie.id}`}>
         <img
           src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
@@ -14,9 +14,7 @@ const MovieItem = ({ movie }) => {
           width={300}
           height={450}
         />
-      </Link>
-      <Link to={`/movie/${movie.id}`} className="movie__link">
-        Acessar
+        <p className="movie__title">{movie.title}</p>
       </Link>
     </article>
   )
