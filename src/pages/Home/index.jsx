@@ -1,7 +1,6 @@
-import MovieItem from 'components/MovieItem'
-import './Home.scss'
-import useHome from './useHome'
 import Loading from 'components/Loading'
+import Movies from 'components/Movies'
+import useHome from './useHome'
 
 const Home = () => {
   const { loading, movies } = useHome()
@@ -12,11 +11,7 @@ const Home = () => {
 
   return (
     <div className="home container">
-      <div className="movies">
-        {movies.map((movie) => (
-          <MovieItem movie={movie} key={movie.id} />
-        ))}
-      </div>
+      <Movies movies={movies} />
     </div>
   )
 }
