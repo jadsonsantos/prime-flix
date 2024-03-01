@@ -23,6 +23,7 @@ const Movie = () => {
     runtime,
     budget,
     production_countries,
+    production_companies,
   } = movie
 
   return (
@@ -50,15 +51,22 @@ const Movie = () => {
           <strong>Duração:</strong> {runtime} minutos
         </p>{' '}
         <p>
+          <strong>Produtoras: </strong>
+          {production_companies.map((item, index) => (
+            <span key={item.id}>
+              {item.name}
+              {index < production_companies.length - 1 && ','}{' '}
+            </span>
+          ))}
+        </p>
+        <p>
           <strong>Países de origem:</strong>{' '}
-          {production_countries.map((item, index) => {
-            return (
-              <span key={item.name}>
-                {item.name}
-                {index < production_countries.length - 1 && ','}{' '}
-              </span>
-            )
-          })}
+          {production_countries.map((item, index) => (
+            <span key={item.name}>
+              {item.name}
+              {index < production_countries.length - 1 && ','}{' '}
+            </span>
+          ))}
         </p>
         {budget > 0 && (
           <p>
