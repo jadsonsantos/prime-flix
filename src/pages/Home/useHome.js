@@ -15,7 +15,7 @@ const useHome = () => {
         },
       })
 
-      setMovies(response.data.results.slice(0, 12))
+      setMovies(response.data.results)
       setLoading(false)
     }
 
