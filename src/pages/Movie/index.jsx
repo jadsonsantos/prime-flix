@@ -41,7 +41,11 @@ const Movie = () => {
           <h1 className="movie__title">{title}</h1>
           <h3>Sinopse</h3>
           <p>{overview}</p>
-          {tagline && <p>Slogan: {tagline}</p>}
+          {tagline && (
+            <p>
+              <strong>Slogan:</strong> {tagline}
+            </p>
+          )}
           <h3>Detalhes</h3>
           <p>
             <strong>Título original:</strong> {original_title}
