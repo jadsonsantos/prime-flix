@@ -40,21 +40,36 @@ const Movie = () => {
         <p>{overview}</p>
         {tagline && <p>Slogan: {tagline}</p>}
         <h3>Detalhes</h3>
-        <p>Título original: {original_title}</p>
-        <p>Data de lançamento: {formateDate(release_date)}</p>
-        <p>Duração: {runtime} minutos</p>{' '}
         <p>
-          Países de origem:{' '}
-          {production_countries.map((item) => (
-            <span key={item.name}>{item.name} | </span>
-          ))}
+          <strong>Título original:</strong> {original_title}
         </p>
-        {budget > 0 && <p>Budget: {formatCurrency(budget)}</p>}
+        <p>
+          <strong>Data de lançamento:</strong> {formateDate(release_date)}
+        </p>
+        <p>
+          <strong>Duração:</strong> {runtime} minutos
+        </p>{' '}
+        <p>
+          <strong>Países de origem:</strong>{' '}
+          {production_countries.map((item, index) => {
+            return (
+              <span key={item.name}>
+                {item.name}
+                {index < production_countries.length - 1 && ','}{' '}
+              </span>
+            )
+          })}
+        </p>
+        {budget > 0 && (
+          <p>
+            <strong>Budget:</strong> {formatCurrency(budget)}
+          </p>
+        )}
         <p className="movie__average">
-          Avaliação: {vote_average.toFixed(1)} / 10
+          <strong>Avaliação:</strong> {vote_average.toFixed(1)} / 10
         </p>
         <p>
-          Gêneros:
+          <strong>Gêneros:</strong>
           {genres.map((genre) => (
             <span key={genre.id} className="movie__genre">
               {genre.name}
