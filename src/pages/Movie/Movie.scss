@@ -1,19 +1,27 @@
 .movie-page .movie {
   margin: 30px auto;
-  padding: 0 20px;
-  max-width: 800px;
 
   p {
     margin: 10px 0;
   }
 
   &__title {
-    margin: 14px 0;
+    margin: 0 0 14px;
+    font-size: 32px;
+  }
+
+  &__poster {
+    min-width: 300px;
+    max-width: 400px;
   }
 
   &__image {
     max-width: 100%;
     border-radius: 8px;
+  }
+
+  &__details {
+    max-width: 700px;
   }
 
   &__sinopse {
@@ -26,10 +34,11 @@
   }
 
   &__genre {
+    display: inline-block;
     border: 1px solid black;
     padding: 2px 10px;
     border-radius: 20px;
-    margin: 0 5px;
+    margin: 5px;
   }
 
   &__buttons {
@@ -47,7 +56,7 @@
     outline: none;
     border-radius: 4px;
     font-size: 20px;
-    transition: all .5s;
+    transition: all 0.5s;
     cursor: pointer;
 
     &:hover {
@@ -58,11 +67,16 @@
     &--link {
       text-decoration: none;
       color: black;
-      transition: all .5s;
+      transition: all 0.5s;
 
       &:hover {
         color: white;
       }
     }
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 30px;
   }
 }
