@@ -1,16 +1,11 @@
+import CustomLink from 'components/CustomLink'
 import './Footer.scss'
 
 const Footer = () => {
   return (
     <footer className="footer">
       Desenvolvido por{' '}
-      <a
-        href="https://jadsonsantos.dev.br/"
-        target="_blank"
-        rel="noopener noreferer noreferrer"
-      >
-        Jadson Santos
-      </a>
+      <CustomLink href="https://jadsonsantos.dev.br/">Jadson Santos</CustomLink>
     </footer>
   )
 }

@@ -1,5 +1,6 @@
 import { formateDate } from 'utils'
 import formatCurrency from 'utils/formatCurrency'
+import CustomLink from 'components/CustomLink'
 import Loading from 'components/Loading'
 import useMovie from './useMovie'
 import './Movie.scss'
@@ -23,6 +24,8 @@ const Movie = () => {
     tagline,
     runtime,
     budget,
+    revenue,
+    homepage,
     production_countries,
     production_companies,
   } = movie
@@ -36,6 +39,11 @@ const Movie = () => {
             alt={title}
             className="movie__image"
           />
+          {homepage > 0 && (
+            <CustomLink href={homepage} className="movie__link">
+              Acessar site do filme
+            </CustomLink>
+          )}
         </article>
         <article className="movie__details">
           <h1 className="movie__title">{title}</h1>
@@ -76,9 +84,12 @@ const Movie = () => {
           </p>
           {budget > 0 && (
             <p>
-              <strong>Budget:</strong> {formatCurrency(budget)}
+              <strong>Orçamento:</strong> {formatCurrency(budget)}
             </p>
           )}
+          <p>
+            <strong>Receita:</strong> {formatCurrency(revenue)}
+          </p>
           <p className="movie__average">
             <strong>Avaliação:</strong> {vote_average.toFixed(1)} / 10
           </p>
@@ -94,14 +105,12 @@ const Movie = () => {
             <button className="movie__button" onClick={saveMovie}>
               Salvar
             </button>
-            <a
+            <CustomLink
               className="movie__button movie__button--link"
               href={`https://www.youtube.com/results?search_query=${title} trailer`}
-              target="_blank"
-              rel="external noreferrer"
             >
               Trailer
-            </a>
+            </CustomLink>
           </div>
         </article>
       </div>
