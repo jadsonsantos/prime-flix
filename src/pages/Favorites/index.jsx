@@ -6,14 +6,14 @@ import './Favorites.scss'
 const Favorites = () => {
   const { movies } = useFavorites()
 
-  if (!movies) return <h1 className="favorites__title">Não há filmes salvos</h1>
+  const isEmptyMovieList = !movies || movies.length === 0
 
   return (
     <section className="favorites">
       <div className="container">
         <Title>Meus filmes</Title>
-        {movies.length === 0 && <p>Você não possui filmes salvos :(</p>}
-        <Movies movies={movies} />
+        {isEmptyMovieList && <p>Você não possui filmes salvos :(</p>}
+        {movies && <Movies movies={movies} />}
       </div>
     </section>
   )
