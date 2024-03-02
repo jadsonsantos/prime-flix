@@ -1,19 +1,17 @@
 .movie-page .movie {
-  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 
   p {
     margin: 10px 0;
-  }
-
-  &__title {
-    margin: 0 0 14px;
-    font-size: 32px;
   }
 
   &__poster {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 30px;
     min-width: 300px;
     max-width: 400px;
   }
@@ -88,7 +86,6 @@
   }
 
   @media (min-width: 768px) {
-    display: flex;
-    gap: 30px;
+    flex-direction: row;
   }
 }
