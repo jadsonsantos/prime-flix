@@ -1,4 +1,5 @@
 import Movies from 'components/Movies'
+import Title from 'components/Title'
 import useFavorites from './useFavorites'
 import './Favorites.scss'
 
@@ -10,7 +11,7 @@ const Favorites = () => {
   return (
     <section className="favorites">
       <div className="container">
-        <h1 className="favorites__title">Meus filmes</h1>
+        <Title>Meus filmes</Title>
         {movies.length === 0 && <p>Você não possui filmes salvos :(</p>}
         <Movies movies={movies} />
       </div>

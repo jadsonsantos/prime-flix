@@ -2,6 +2,7 @@ import { formateDate } from 'utils'
 import formatCurrency from 'utils/formatCurrency'
 import CustomLink from 'components/CustomLink'
 import Loading from 'components/Loading'
+import Title from 'components/Title'
 import useMovie from './useMovie'
 import './Movie.scss'
 
@@ -39,14 +40,14 @@ const Movie = () => {
             alt={title}
             className="movie__image"
           />
-          {homepage > 0 && (
+          {homepage.length > 0 && (
             <CustomLink href={homepage} className="movie__link">
               Acessar site do filme
             </CustomLink>
           )}
         </article>
         <article className="movie__details">
-          <h1 className="movie__title">{title}</h1>
+          <Title>{title}</Title>
           <h3>Sinopse</h3>
           <p>{overview}</p>
           {tagline && (
