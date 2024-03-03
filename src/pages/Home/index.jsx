@@ -1,5 +1,6 @@
 import Loading from 'components/Loading'
 import Movies from 'components/Movies'
+
 import useHome from './useHome'
 
 const Home = () => {

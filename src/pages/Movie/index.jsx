@@ -1,9 +1,11 @@
-import { formateDate } from 'utils'
-import formatCurrency from 'utils/formatCurrency'
 import CustomLink from 'components/CustomLink'
 import Loading from 'components/Loading'
 import Title from 'components/Title'
+import { formateDate } from 'utils'
+import formatCurrency from 'utils/formatCurrency'
+
 import useMovie from './useMovie'
+
 import './Movie.scss'
 
 const Movie = () => {

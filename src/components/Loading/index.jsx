@@ -1,5 +1,7 @@
 import { ClipLoader } from 'react-spinners'
+
 import PropTypes from 'prop-types'
+
 import './Loading.scss'
 
 const Loading = ({ text }) => {

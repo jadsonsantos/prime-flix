@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import MovieItem from 'components/MovieItem'
+
 import './Movies.scss'
 
 const Movies = ({ movies }) => {

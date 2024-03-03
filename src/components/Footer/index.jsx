@@ -1,4 +1,5 @@
 import CustomLink from 'components/CustomLink'
+
 import './Footer.scss'
 
 const Footer = () => {

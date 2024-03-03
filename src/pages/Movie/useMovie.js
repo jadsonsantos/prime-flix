@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import api from '../../services/api'
+import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
+
+import api from 'services/api'
 
 const useMovie = () => {
   const { id } = useParams()
@@ -34,10 +35,10 @@ const useMovie = () => {
   }, [navigate, id])
 
   const saveMovie = () => {
-    const myList = localStorage.getItem('movies')
+    const myList = localStorage.getItem('@movies')
     let savedMovies = JSON.parse(myList) || []
-    const hasMovie = savedMovies.some(({ id }) => {
-      id === movie.id
+    const hasMovie = savedMovies.some((item) => {
+      item.id === movie.id
     })
 
     if (hasMovie) {
@@ -46,7 +47,7 @@ const useMovie = () => {
     }
 
     savedMovies.push(movie)
-    localStorage.setItem('movies', JSON.stringify(savedMovies))
+    localStorage.setItem('@movies', JSON.stringify(savedMovies))
     toast.success('filme salvo com sucesso')
   }
 

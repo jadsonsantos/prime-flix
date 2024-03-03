@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import Home from './pages/Home'
-import Movie from './pages/Movie'
-import NotFound from './pages/NotFound'
-import Favorites from './pages/Favorites'
 import Footer from 'components/Footer'
-import Header from './components/Header'
+import Header from 'components/Header'
+import Favorites from 'pages/Favorites'
+import Home from 'pages/Home'
+import Movie from 'pages/Movie'
+import NotFound from 'pages/NotFound'
 
 const RoutesApp = () => (
   <BrowserRouter>

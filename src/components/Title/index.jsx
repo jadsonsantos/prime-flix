@@ -1,4 +1,5 @@
 import propTypes from 'prop-types'
+
 import './Title.scss'
 
 const Title = ({ children }) => {
