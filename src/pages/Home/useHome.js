@@ -1,22 +1,16 @@
 import { useEffect, useState } from 'react'
 
-import api from 'services/api'
+import getMovies from 'services/getMovies'
 
 const useHome = () => {
   const [movies, setMovies] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    async function loadMovies() {
-      const response = await api.get('/movie/now_playing', {
-        params: {
-          api_key: '9c366f3c92674ee5238386c2ef0ce2f1',
-          language: 'pt-BR',
-          page: 1,
-        },
-      })
+    const loadMovies = async () => {
+      const movies = await getMovies('now_playing')
 
-      setMovies(response.data.results)
+      setMovies(movies)
       setLoading(false)
     }
 
