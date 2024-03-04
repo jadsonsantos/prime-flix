@@ -1,5 +1,6 @@
 import Loading from 'components/Loading'
 import Movies from 'components/Movies'
+import Title from 'components/Title'
 
 import useHome from './useHome'
 
@@ -12,6 +13,7 @@ const Home = () => {
 
   return (
     <div className="home container">
+      <Title>Em exibição</Title>
       <Movies movies={movies} />
     </div>
   )
