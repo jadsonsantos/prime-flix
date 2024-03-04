@@ -8,7 +8,7 @@ import './Favorites.scss'
 const Favorites = () => {
   const { movies } = useFavorites()
 
-  const isEmptyMovieList = !movies || movies.length === 0
+  const isEmptyMovieList = movies.length === 0
 
   return (
     <section className="favorites">
