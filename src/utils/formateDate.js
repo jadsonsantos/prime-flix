@@ -8,4 +8,4 @@ const formateDate = (date) => {
   return new Date(date).toLocaleDateString('pt-BR', options)
 }
 
-export { formateDate }
+export default formateDate

@@ -29,7 +29,8 @@
         "groups": [
           ["/^react/"],
           "/module/",
-          ["/pages/", "/components/", "/utils/", "/services/"],
+          ["/pages/", "/components/"],
+          ["/utils/", "/services/"],
           "/^@shared/",
           "/absolute/",
           ["parent", "sibling", "index"]

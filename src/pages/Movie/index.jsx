@@ -1,8 +1,10 @@
 import CustomLink from 'components/CustomLink'
 import Loading from 'components/Loading'
 import Title from 'components/Title'
-import { formateDate } from 'utils'
+
+import convertMinutesToHours from 'utils/convertMinutesToHours'
 import formatCurrency from 'utils/formatCurrency'
+import formateDate from 'utils/formateDate'
 
 import useMovie from './useMovie'
 
@@ -32,6 +34,8 @@ const Movie = () => {
     production_countries,
     production_companies,
   } = movie
+
+  const runTime = convertMinutesToHours(runtime)
 
   return (
     <section className="movie-page container">
@@ -65,7 +69,9 @@ const Movie = () => {
             <strong>Data de lançamento:</strong> {formateDate(release_date)}
           </p>
           <p>
-            <strong>Duração:</strong> {runtime} minutos
+            <strong>Duração:</strong>{' '}
+            {runTime.hours > 0 && `${runTime.hours}h `}
+            {runTime.minutes > 0 && `${runTime.minutes}m`}
           </p>{' '}
           <p>
             <strong>Produtoras: </strong>
@@ -90,9 +96,11 @@ const Movie = () => {
               <strong>Orçamento:</strong> {formatCurrency(budget)}
             </p>
           )}
-          <p>
-            <strong>Receita:</strong> {formatCurrency(revenue)}
-          </p>
+          {revenue > 0 && (
+            <p>
+              <strong>Receita:</strong> {formatCurrency(revenue)}
+            </p>
+          )}
           <p className="movie__average">
             <strong>Avaliação:</strong> {vote_average.toFixed(1)} / 10
           </p>
