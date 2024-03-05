@@ -18,7 +18,7 @@ const RoutesApp = () => (
           element={<MoviesContainer title="Em exibição" filter="now_playing" />}
         />
         <Route
-          path="/populares"
+          path="/popular"
           element={<MoviesContainer title="Populares" filter="popular" />}
         />
         <Route
