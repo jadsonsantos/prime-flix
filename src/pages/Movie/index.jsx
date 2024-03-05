@@ -1,3 +1,4 @@
+import Collection from 'components/Collection'
 import Loading from 'components/Loading'
 import { Movie } from 'components/Movie'
 
@@ -13,7 +14,7 @@ const MoviePage = () => {
   }
 
   return (
-    <section className="movie-page container">
+    <div className="movie-page container">
       <Movie.Root>
         <Movie.Poster movie={movie} />
         <Movie.Infos>
@@ -22,7 +23,11 @@ const MoviePage = () => {
           <Movie.Actions title={movie.title} />
         </Movie.Infos>
       </Movie.Root>
-    </section>
+
+      {movie.belongs_to_collection && (
+        <Collection collection={movie.belongs_to_collection} />
+      )}
+    </div>
   )
 }
 
