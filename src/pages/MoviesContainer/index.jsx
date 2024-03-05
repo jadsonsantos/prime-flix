@@ -12,8 +12,8 @@ const MoviesContainer = ({ title, filter }) => {
   const { movies, loading, loadMovies } = useMovies()
 
   useEffect(() => {
-    loadMovies(filter)
-  }, [])
+    if (filter) loadMovies(filter)
+  }, [filter])
 
   if (loading) {
     return <Loading text="Carregando filmes..." />
