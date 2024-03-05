@@ -22,8 +22,8 @@ const MovieItem = ({ movie }) => {
           alt={movie.title}
           title={movie.title}
           className="movie-item__image"
-          width={260}
-          height={390}
+          // width={260}
+          // height={390}
         />
         <p className="movie-item__title">{movie.title}</p>
       </Link>

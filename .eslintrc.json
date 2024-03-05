@@ -30,7 +30,7 @@
           ["/^react/"],
           "/module/",
           ["/pages/", "/components/"],
-          ["/utils/", "/services/"],
+          ["/utils/", "/services/", "/hooks/"],
           "/^@shared/",
           "/absolute/",
           ["parent", "sibling", "index"]
