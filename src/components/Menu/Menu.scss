@@ -1,0 +1,18 @@
+.menu {
+  display: none;
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    display: inline-block;
+    color: #fff;
+    padding: 10px;
+  }
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Menu from 'components/Menu'
+
 import './Header.scss'
 
 const Header = () => (
@@ -9,6 +11,7 @@ const Header = () => (
       <Link className="header__link header__logo" to="/">
         Prime Flix
       </Link>
+      <Menu />
       <Link className="header__link header__favorites" to="/favorites">
         Meus filmes
       </Link>

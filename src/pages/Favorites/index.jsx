@@ -3,8 +3,6 @@ import Title from 'components/Title'
 
 import useFavorites from './useFavorites'
 
-import './Favorites.scss'
-
 const Favorites = () => {
   const { movies } = useFavorites()
 
