@@ -1,18 +1,34 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import Favorites from 'pages/Favorites'
+import Movie from 'pages/Movie'
+import MoviesContainer from 'pages/MoviesContainer'
+import NotFound from 'pages/NotFound'
+
 import Footer from 'components/Footer'
 import Header from 'components/Header'
-import Favorites from 'pages/Favorites'
-import Home from 'pages/Home'
-import Movie from 'pages/Movie'
-import NotFound from 'pages/NotFound'
 
 const RoutesApp = () => (
   <BrowserRouter>
     <Header />
     <main className="main">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<MoviesContainer title="Em exibição" filter="now_playing" />}
+        />
+        <Route
+          path="/populares"
+          element={<MoviesContainer title="Populares" filter="popular" />}
+        />
+        <Route
+          path="/top"
+          element={<MoviesContainer title="Top Rated" filter="top_rated" />}
+        />
+        <Route
+          path="/em-breve"
+          element={<MoviesContainer title="Em breve" filter="upcoming" />}
+        />
         <Route path="/movie/:id" element={<Movie />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<NotFound />} />
