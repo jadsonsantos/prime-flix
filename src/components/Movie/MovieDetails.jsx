@@ -10,7 +10,6 @@ const MovieDetails = ({ movie }) => {
     production_countries,
     budget,
     revenue,
-    vote_average,
   } = movie
 
   return (
@@ -47,9 +46,6 @@ const MovieDetails = ({ movie }) => {
           <strong>Receita:</strong> {formatCurrency(revenue)}
         </p>
       )}
-      <p className="movie__average">
-        <strong>Avaliação:</strong> {vote_average.toFixed(1)} / 10
-      </p>
     </article>
   )
 }

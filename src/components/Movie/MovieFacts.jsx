@@ -6,7 +6,7 @@ import formateDate from 'utils/formateDate'
 import PropTypes from 'prop-types'
 
 const MovieFacts = ({ movie }) => {
-  const { runtime, genres, release_date } = movie
+  const { runtime, genres, release_date, vote_average } = movie
   const runTime = convertMinutesToHours(runtime)
 
   return (
@@ -23,6 +23,7 @@ const MovieFacts = ({ movie }) => {
           </span>
         ))}
       </span>
+      {vote_average && <span>{vote_average.toFixed(1)} / 10</span>}
     </div>
   )
 }
@@ -32,6 +33,7 @@ MovieFacts.propTypes = {
     runtime: PropTypes.number,
     release_date: PropTypes.string,
     genres: PropTypes.array,
+    vote_average: PropTypes.number,
   }),
 }
 

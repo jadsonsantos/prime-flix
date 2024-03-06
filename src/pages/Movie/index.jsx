@@ -20,7 +20,7 @@ const MoviePage = () => {
         <Movie.Infos>
           <Movie.Overview movie={movie} />
           <Movie.Details movie={movie} />
-          <Movie.Actions title={movie.title} />
+          <Movie.Actions movie={movie} />
         </Movie.Infos>
       </Movie.Root>
 

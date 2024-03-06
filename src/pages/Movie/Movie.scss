@@ -39,11 +39,6 @@
     margin: 8px 0;
   }
 
-  &__average {
-    display: block;
-    margin: 8px 0;
-  }
-
   &__genre {
     display: inline-block;
 
@@ -63,9 +58,8 @@
   }
 
   &__link {
-    margin: 0 auto;
     border-radius: 8px;
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-size: 16px;
     background-color: #000;
     color: #fff;

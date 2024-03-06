@@ -4,10 +4,11 @@ import CustomLink from 'components/CustomLink'
 
 import useMovie from 'hooks/useMovie'
 
-import PropTypes from 'prop-types'
+import PropTypes, { shape } from 'prop-types'
 
-const MovieActions = ({ title }) => {
+const MovieActions = ({ movie }) => {
   const { saveMovie } = useMovie()
+  const { title, homepage } = movie
 
   return (
     <div className="movie__buttons">
@@ -20,12 +21,20 @@ const MovieActions = ({ title }) => {
       >
         Trailer
       </CustomLink>
+      {homepage.length > 0 && (
+        <CustomLink href={homepage} className="movie__link">
+          Acessar site do filme
+        </CustomLink>
+      )}
     </div>
   )
 }
 
 MovieActions.propTypes = {
-  title: PropTypes.string,
+  movie: shape({
+    title: PropTypes.string,
+    homepage: PropTypes.string,
+  }),
 }
 
 export default MovieActions
