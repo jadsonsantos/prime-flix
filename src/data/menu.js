@@ -8,7 +8,7 @@ const menu = [
     link: 'popular',
   },
   {
-    name: 'Top Rated',
+    name: 'Mais votados',
     link: 'top',
   },
   {

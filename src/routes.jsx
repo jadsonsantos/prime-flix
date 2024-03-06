@@ -23,7 +23,7 @@ const RoutesApp = () => (
         />
         <Route
           path="/top"
-          element={<MoviesContainer title="Top Rated" filter="top_rated" />}
+          element={<MoviesContainer title="Mais votados" filter="top_rated" />}
         />
         <Route
           path="/em-breve"
