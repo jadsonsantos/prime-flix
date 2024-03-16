@@ -23,7 +23,7 @@ const MovieFacts = ({ movie }) => {
           </span>
         ))}
       </span>
-      {vote_average && <span>{vote_average.toFixed(1)} / 10</span>}
+      {vote_average > 0 && <span>{vote_average.toFixed(1)} / 10</span>}
     </div>
   )
 }

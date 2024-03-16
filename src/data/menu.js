@@ -15,6 +15,10 @@ const menu = [
     name: 'Em breve',
     link: 'em-breve',
   },
+  {
+    name: 'Meus filmes',
+    link: 'favorites',
+  },
 ]
 
 export default menu

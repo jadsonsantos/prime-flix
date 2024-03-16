@@ -1,6 +1,7 @@
 .header {
   width: 100%;
   background-color: black;
+  position: relative;
 
   &__container {
     height: 60px;
@@ -17,10 +18,5 @@
   &__logo {
     font-size: 30px;
     font-weight: 700;
-  }
-
-  &__favorites {
-    padding: 5px 15px;
-    border-radius: 4px;
   }
 }
