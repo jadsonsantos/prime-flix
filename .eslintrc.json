@@ -31,7 +31,14 @@
           "/module/",
           ["/pages/"],
           ["/components/"],
-          ["/utils/", "/services/", "/hooks/"],
+          [
+            "/utils/",
+            "/services/",
+            "/hooks/",
+            "/contexts/",
+            "/data/",
+            "/assets/"
+          ],
           "/^@shared/",
           "/absolute/",
           ["parent", "sibling", "index"]
