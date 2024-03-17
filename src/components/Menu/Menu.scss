@@ -1,9 +1,12 @@
 .menu {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  // transition: 0.3s;
 
   &__list {
     display: flex;
     align-items: center;
+    flex-direction: column;
   }
 
   &__link {
@@ -12,7 +15,24 @@
     padding: 10px;
   }
 
-  @media (min-width: 768px) {
-    display: block;
+  @media (min-width: 1024px) {
+    opacity: 1;
+    visibility: visible;
+
+    &__list {
+      flex-direction: row;
+    }
   }
+}
+
+.menu--active {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: #000;
+  // transform: translate(0);
+  opacity: 1;
+  visibility: visible;
 }

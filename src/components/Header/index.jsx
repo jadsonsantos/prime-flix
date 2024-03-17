@@ -1,22 +1,28 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 import Menu from 'components/Menu'
+import MobileMenuButton from 'components/MobileMenuButton'
 
 import './Header.scss'
 
-const Header = () => (
-  <header className="header">
-    <div className="container header__container">
-      <Link className="header__link header__logo" to="/">
-        Prime Flix
-      </Link>
-      <Menu />
-      <Link className="header__link header__favorites" to="/favorites">
-        Meus filmes
-      </Link>
-    </div>
-  </header>
-)
+import useIsMobile from 'hooks/useIsMobile'
+
+const Header = () => {
+  const { isMobile } = useIsMobile()
+
+  return (
+    <header className="header">
+      <div className="container header__container">
+        <Link className="header__link header__logo" to="/">
+          Prime Flix
+        </Link>
+
+        <Menu />
+
+        {isMobile && <MobileMenuButton />}
+      </div>
+    </header>
+  )
+}
 
 export default Header

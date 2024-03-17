@@ -14,7 +14,11 @@ const MenuContextProvider = ({ children }) => {
     setIsMenuActive(!isMenuActive)
   }
 
-  const value = { isMenuActive, handleMobileMenuButton }
+  const closeMenu = () => {
+    setIsMenuActive(false)
+  }
+
+  const value = { isMenuActive, handleMobileMenuButton, closeMenu }
 
   return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>
 }
