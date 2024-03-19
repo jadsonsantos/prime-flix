@@ -3,6 +3,8 @@ import { useContext } from 'react'
 import { ReactComponent as MenuIcon } from 'assets/icons/hamburguer.svg'
 import { MenuContext } from 'contexts/menu'
 
+import './MobileMenuButton.scss'
+
 const MobileMenuButton = () => {
   const { isMenuActive, handleMobileMenuButton } = useContext(MenuContext)
 
