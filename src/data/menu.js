@@ -1,23 +1,31 @@
+import {
+  FAVORITES_ROUTE,
+  HOME_ROUTE,
+  POPULAR_ROUTE,
+  TOP_RATED_ROUTE,
+  UPCOMING_ROUTE,
+} from 'constants/routes'
+
 const menu = [
   {
     name: 'Em exibição',
-    link: '',
+    link: `${HOME_ROUTE}`,
   },
   {
     name: 'Populares',
-    link: 'popular',
+    link: `${POPULAR_ROUTE}`,
   },
   {
     name: 'Mais votados',
-    link: 'top',
+    link: `${TOP_RATED_ROUTE}`,
   },
   {
     name: 'Em breve',
-    link: 'em-breve',
+    link: `${UPCOMING_ROUTE}`,
   },
   {
     name: 'Meus filmes',
-    link: 'favorites',
+    link: `${FAVORITES_ROUTE}`,
   },
 ]
 

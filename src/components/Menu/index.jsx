@@ -20,7 +20,7 @@ const Menu = () => {
       <ul className="menu__list">
         {menu.map(({ name, link }) => (
           <li key={name} className="menu__item" onClick={handleItemMenuClick}>
-            <Link to={`/${link}`} className="menu__link">
+            <Link to={link} className="menu__link">
               {name}
             </Link>
           </li>

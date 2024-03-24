@@ -1,0 +1,5 @@
+export const HOME_ROUTE = '/'
+export const POPULAR_ROUTE = '/popular'
+export const TOP_RATED_ROUTE = '/top'
+export const UPCOMING_ROUTE = '/em-breve'
+export const FAVORITES_ROUTE = '/favoritos'
