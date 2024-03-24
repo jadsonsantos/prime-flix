@@ -14,10 +14,11 @@
   &__link {
     display: inline-block;
     color: #fff;
+    text-align: center;
     padding: 10px;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     opacity: 1;
     visibility: visible;
     display: block;
@@ -35,7 +36,7 @@
   display: block;
   width: 100%;
   position: absolute;
-  top: 60px;
+  top: var(--header-heigth);
   left: 0;
   z-index: 100;
 }

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 
 import Menu from 'components/Menu'
 import MobileMenuButton from 'components/MobileMenuButton'
+import SearchForm from 'components/SearchForm'
 
 import './Header.scss'
 
@@ -16,6 +17,8 @@ const Header = () => {
         <Link className="header__link header__logo" to="/">
           Prime Flix
         </Link>
+
+        <SearchForm />
 
         <Menu />
 
