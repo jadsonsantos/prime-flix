@@ -22,7 +22,7 @@ const MoviesContainer = ({ title, filter }) => {
   return (
     <div className="container">
       <Title>{title}</Title>
-      {movies && <Movies movies={movies} />}
+      {movies.length > 0 && <Movies movies={movies} />}
     </div>
   )
 }
