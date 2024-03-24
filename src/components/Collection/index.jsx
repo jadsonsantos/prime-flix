@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { API_IMAGE_URL } from 'constants'
 import PropTypes from 'prop-types'
 
 import './Collection.scss'
@@ -8,7 +9,7 @@ const Collection = ({ collection }) => {
   const { backdrop_path, name } = collection
 
   const style = {
-    backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`,
+    backgroundImage: `url(${API_IMAGE_URL}${backdrop_path})`,
     backgroundSize: 'cover',
   }
 

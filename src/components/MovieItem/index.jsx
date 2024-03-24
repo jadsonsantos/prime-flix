@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import useFavorites from 'pages/Favorites/useFavorites'
 
 import './MovieItem.scss'
+import { API_IMAGE_URL } from 'constants'
 
 const MovieItem = ({ movie }) => {
   const { deleteMovie } = useFavorites()
@@ -18,7 +19,7 @@ const MovieItem = ({ movie }) => {
       </button>
       <Link to={`/movie/${movie.id}`}>
         <img
-          src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+          src={`${API_IMAGE_URL}${movie.poster_path}`}
           alt={movie.title}
           title={movie.title}
           className="movie-item__image"
