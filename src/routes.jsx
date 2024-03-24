@@ -4,6 +4,7 @@ import Favorites from 'pages/Favorites'
 import Movie from 'pages/Movie'
 import MoviesContainer from 'pages/MoviesContainer'
 import NotFound from 'pages/NotFound'
+import Search from 'pages/Search'
 
 import Footer from 'components/Footer'
 import Header from 'components/Header'
@@ -40,6 +41,7 @@ const RoutesApp = () => (
         <Route path="/movie/:id" element={<Movie />} />
         <Route path={FAVORITES_ROUTE} element={<Favorites />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </main>
     <Footer />
