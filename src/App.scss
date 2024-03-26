@@ -1,5 +1,6 @@
 :root {
   --header-heigth: 70px;
+  --border-radius: 8px;
 }
 
 .container {
@@ -21,6 +22,10 @@
 
 .footer {
   margin-top: auto;
+}
+
+.favorites .movie-item__action {
+  display: block;
 }
 
 @media (min-width: 768px) {
