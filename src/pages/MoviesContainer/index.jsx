@@ -15,14 +15,16 @@ const MoviesContainer = ({ title, filter }) => {
     if (filter) loadMovies(filter)
   }, [filter])
 
-  if (loading) {
-    return <Loading text="Carregando filmes..." />
-  }
-
   return (
     <div className="container">
-      <Title>{title}</Title>
-      {movies.length > 0 && <Movies movies={movies} />}
+      {loading ? (
+        <Loading text="Carregando filmes..." />
+      ) : (
+        <>
+          <Title>{title}</Title>
+          {movies.length > 0 && <Movies movies={movies} />}
+        </>
+      )}
     </div>
   )
 }

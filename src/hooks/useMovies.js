@@ -7,10 +7,15 @@ const useMovies = () => {
   const [loading, setLoading] = useState(true)
 
   const loadMovies = async (filter) => {
-    const movies = await getMovies(filter)
+    try {
+      const movies = await getMovies(filter)
 
-    setMovies(movies)
-    setLoading(false)
+      setMovies(movies)
+    } catch (error) {
+      console.error('Erro ao buscar filmes: ', error)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return { loading, movies, loadMovies }
