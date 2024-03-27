@@ -1,6 +1,8 @@
+@import '../../styles/mixins.scss';
+
 .collection {
   position: relative;
-  margin-top: 50px;
+  margin: 50px 0;
   height: 400px;
 
   border-radius: var(--border-radius);
@@ -10,15 +12,10 @@
   background-position: top center;
 
   &__infos {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 30px;
+    @include transparent-text();
+    @include bottom-positioned();
 
-    border-radius: 0 0 8px 8px;
-    background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1;
+    padding: 30px;
   }
 
   &__title {

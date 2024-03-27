@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .movie-item {
   background-color: white;
   border-radius: var(--border-radius);
@@ -5,7 +7,7 @@
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   &__image {
@@ -16,19 +18,20 @@
   }
 
   &__title {
+    @include transparent-text();
+    @include bottom-positioned();
+
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    bottom: 0;
+
     padding: 15px;
+    height: 40px;
 
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
+    line-height: 1.1;
     text-decoration: none;
-    color: white;
-
-    border-radius: 0 0 8px 8px;
   }
 
   &__action {
