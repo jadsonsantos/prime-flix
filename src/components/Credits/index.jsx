@@ -19,7 +19,7 @@ const Credits = () => {
         {credits?.cast?.slice(0, 4).map((actor) => {
           const imagePath = actor.profile_path
             ? `${API_IMAGE_URL}${actor.profile_path}`
-            : '../../actor-avatar.svg'
+            : 'https://placehold.co/335x500'
 
           return (
             <li key={actor.id} className="credits__item">

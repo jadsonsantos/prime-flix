@@ -27,8 +27,10 @@ const Collection = ({ collection }) => {
     <>
       <section className="collection" style={style}>
         <div className="collection__infos">
-          <h2 className="collection__title">Parte de {name}</h2>
-          <p className="collection__paragraph">{collections?.overview}</p>
+          <h2 className="collection__title">{name}</h2>
+          {collections?.overview && (
+            <p className="collection__paragraph">{collections?.overview}</p>
+          )}
         </div>
       </section>
 

@@ -16,8 +16,10 @@
   &__name {
     @include transparent-text();
     @include bottom-positioned();
+    @include flex-centered();
 
     padding: 10px;
+    height: 40px;
   }
 
   @media (min-width: 1024px) {

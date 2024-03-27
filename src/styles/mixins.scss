@@ -2,9 +2,6 @@
   border-radius: 0 0 8px 8px;
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
-
-  display: flex;
-  align-items: center;
 }
 
 @mixin bottom-positioned {
@@ -12,6 +9,9 @@
   bottom: 0;
   left: 0;
   right: 0;
+}
 
-  height: 40px;
+@mixin flex-centered {
+  display: flex;
+  align-items: center;
 }
