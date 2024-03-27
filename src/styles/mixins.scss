@@ -1,0 +1,12 @@
+@mixin transparent-text {
+  border-radius: 0 0 8px 8px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+}
+
+@mixin bottom-positioned {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
