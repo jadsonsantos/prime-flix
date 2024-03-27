@@ -1,20 +1,23 @@
 .search-form {
   display: flex;
+
   &__input {
     border-radius: 20px 0 0 20px;
-    padding: 8px;
+    padding: 8px 15px;
     outline: none;
     border: none;
+
+    font-size: 12px;
   }
 
   &__button {
     background-color: #f7d354;
     border: 2px solid #f7d354;
     color: #000;
-    padding: 8px;
+    padding: 8px 15px;
     border-radius: 0 20px 20px 0;
 
-    font-size: 15px;
+    font-size: 12px;
     display: flex;
     align-items: center;
     cursor: pointer;

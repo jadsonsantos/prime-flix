@@ -5,8 +5,12 @@ import './Footer.scss'
 const Footer = () => {
   return (
     <footer className="footer">
-      Desenvolvido por{' '}
-      <CustomLink href="https://jadsonsantos.dev.br/">Jadson Santos</CustomLink>
+      <div className="container">
+        Desenvolvido por{' '}
+        <CustomLink href="https://jadsonsantos.dev.br/">
+          Jadson Santos
+        </CustomLink>
+      </div>
     </footer>
   )
 }
