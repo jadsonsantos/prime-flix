@@ -31,7 +31,9 @@ const Credits = () => {
                 width={335}
                 height={500}
               />
-              <p className="credits__name">{actor.name}</p>
+              <p className="credits__name">
+                {actor.name} - {actor.character}
+              </p>
             </li>
           )
         })}

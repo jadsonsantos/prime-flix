@@ -9,14 +9,6 @@
     line-height: 1.5;
   }
 
-  &__poster {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 30px;
-    max-width: 500px;
-  }
-
   &__image {
     border-radius: var(--border-radius);
   }
@@ -53,6 +45,7 @@
   &__buttons {
     margin: 20px 0 0;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 15px;
   }
@@ -93,6 +86,7 @@
   }
 
   @media (min-width: 768px) {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 40% 55%;
   }
 }
