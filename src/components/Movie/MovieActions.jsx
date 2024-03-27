@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Button from 'components/Button'
 import CustomLink from 'components/CustomLink'
 
 import useMovie from 'hooks/useMovie'
@@ -17,22 +18,22 @@ const MovieActions = ({ movie }) => {
 
   return (
     <div className="movie__buttons">
-      <button className="movie__button" onClick={saveMovie}>
+      <Button variation="primary" onClick={saveMovie}>
         Salvar
-      </button>
+      </Button>
+
       {trailer && (
-        <CustomLink
-          className="movie__button movie__button--link"
-          href={`https://www.youtube.com/watch?v=${trailer.key}`}
-        >
-          Ver Trailer
-        </CustomLink>
+        <Button variation="secondary">
+          <CustomLink href={`https://www.youtube.com/watch?v=${trailer.key}`}>
+            Ver Trailer
+          </CustomLink>
+        </Button>
       )}
 
       {homepage.length > 0 && (
-        <CustomLink href={homepage} className="movie__link">
-          Homepage
-        </CustomLink>
+        <Button variation="secondary">
+          <CustomLink href={homepage}>Homepage</CustomLink>
+        </Button>
       )}
     </div>
   )

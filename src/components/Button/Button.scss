@@ -1,0 +1,36 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  outline: none;
+
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background: none;
+  cursor: pointer;
+
+  font-size: 16px;
+  transition: all 0.5s;
+
+  &--primary {
+    background-color: #000;
+    color: #fff;
+
+    &:hover {
+      color: #000;
+      border-color: #000;
+      background-color: #fff;
+    }
+  }
+
+  &--secondary {
+    border: 1px solid #000;
+    color: black;
+
+    &:hover {
+      color: white;
+      background-color: #000;
+    }
+  }
+}

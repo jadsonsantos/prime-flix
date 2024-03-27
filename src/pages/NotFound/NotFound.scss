@@ -12,12 +12,7 @@
     margin: 0;
   }
 
-  &__link {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    background-color: #000;
-    border-radius: var(--border-radius);
-    color: white;
+  h2 {
+    margin: 0 0 20px;
   }
 }
