@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 import Movies from 'components/Movies'
+import Title from 'components/Title'
 
 import useCollection from 'hooks/useCollection'
 
@@ -30,6 +31,9 @@ const Collection = ({ collection }) => {
           <p className="collection__paragraph">{collections?.overview}</p>
         </div>
       </section>
+
+      <Title>Todos os filmes da franquia</Title>
+
       {collections?.parts && <Movies movies={collections?.parts} />}
     </>
   )

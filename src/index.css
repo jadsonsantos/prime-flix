@@ -45,3 +45,7 @@ img {
   max-width: 100%;
   display: block;
 }
+
+h2 {
+  margin-top: 0;
+}

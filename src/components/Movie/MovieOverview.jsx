@@ -11,8 +11,13 @@ const MovieOverview = ({ movie }) => {
       <Title>{movie.title}</Title>
       <MovieFacts movie={movie} />
       {movie.tagline && <p className="movie__tagline">{movie.tagline}</p>}
-      <h3>Sinopse</h3>
-      <p>{movie.overview}</p>
+
+      {movie.overview && (
+        <>
+          <h3>Sinopse</h3>
+          <p>{movie.overview}</p>
+        </>
+      )}
     </article>
   )
 }
