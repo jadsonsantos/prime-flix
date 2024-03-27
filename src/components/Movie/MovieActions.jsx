@@ -31,7 +31,7 @@ const MovieActions = ({ movie }) => {
 
       {homepage.length > 0 && (
         <CustomLink href={homepage} className="movie__link">
-          Acessar site do filme
+          Homepage
         </CustomLink>
       )}
     </div>

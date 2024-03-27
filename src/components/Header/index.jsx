@@ -18,7 +18,7 @@ const Header = () => {
           Prime Flix
         </Link>
 
-        <SearchForm />
+        {!isMobile && <SearchForm />}
 
         <Menu />
 

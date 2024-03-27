@@ -24,8 +24,14 @@ const Search = () => {
 
   return (
     <div className="container">
-      <Title>Resultados para: {query}</Title>
-      {movies.length > 0 && <Movies movies={movies} />}
+      {movies.length > 0 ? (
+        <>
+          <Title>Resultados para: {query}</Title>
+          <Movies movies={movies} />
+        </>
+      ) : (
+        <p>Não foram encontrados resultados para sua busca</p>
+      )}
     </div>
   )
 }

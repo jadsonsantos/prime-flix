@@ -11,11 +11,13 @@ const MovieFacts = ({ movie }) => {
 
   return (
     <div className="movie__facts">
-      <span>{formateDate(release_date)}</span>
-      <span>
-        {runTime.hours > 0 && `${runTime.hours}h `}
-        {runTime.minutes > 0 && `${runTime.minutes}m`}
-      </span>
+      {release_date && <span>{formateDate(release_date)}</span>}
+      {runTime.length > 0 && (
+        <span>
+          {runTime.hours > 0 && `${runTime.hours}h `}
+          {runTime.minutes > 0 && `${runTime.minutes}m`}
+        </span>
+      )}
       <span>
         {genres.map((genre) => (
           <span key={genre.id} className="movie__genre">

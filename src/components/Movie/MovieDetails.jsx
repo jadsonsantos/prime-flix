@@ -18,24 +18,28 @@ const MovieDetails = ({ movie }) => {
       <p>
         <strong>Título original:</strong> {original_title}
       </p>
-      <p>
-        <strong>Produtoras: </strong>
-        {production_companies.map((item, index) => (
-          <span key={item.id}>
-            {item.name}
-            {index < production_companies.length - 1 && ','}{' '}
-          </span>
-        ))}
-      </p>
-      <p>
-        <strong>Países de origem:</strong>{' '}
-        {production_countries.map((item, index) => (
-          <span key={item.name}>
-            {item.name}
-            {index < production_countries.length - 1 && ','}{' '}
-          </span>
-        ))}
-      </p>
+      {production_companies.length > 0 && (
+        <p>
+          <strong>Produtoras: </strong>
+          {production_companies.map((item, index) => (
+            <span key={item.id}>
+              {item.name}
+              {index < production_companies.length - 1 && ','}{' '}
+            </span>
+          ))}
+        </p>
+      )}
+      {production_countries.length > 0 && (
+        <p>
+          <strong>Países de origem:</strong>{' '}
+          {production_countries.map((item, index) => (
+            <span key={item.name}>
+              {item.name}
+              {index < production_countries.length - 1 && ','}{' '}
+            </span>
+          ))}
+        </p>
+      )}
       {budget > 0 && (
         <p>
           <strong>Orçamento:</strong> {formatCurrency(budget)}
