@@ -1,14 +1,21 @@
+import { useEffect } from 'react'
+
 import Collection from 'components/Collection'
 import Credits from 'components/Credits'
 import Loading from 'components/Loading'
 import { Movie } from 'components/Movie'
 
 import useMovie from 'hooks/useMovie'
+import scrollToTop from 'utils/scrollToTop '
 
 import './Movie.scss'
 
 const MoviePage = () => {
   const { loading, movie } = useMovie()
+
+  useEffect(() => {
+    scrollToTop()
+  }, [movie])
 
   if (loading) {
     return <Loading text="Carregando detalhes..." />
