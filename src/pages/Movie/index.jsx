@@ -1,4 +1,5 @@
 import Collection from 'components/Collection'
+import Credits from 'components/Credits'
 import Loading from 'components/Loading'
 import { Movie } from 'components/Movie'
 
@@ -23,6 +24,8 @@ const MoviePage = () => {
           <Movie.Actions movie={movie} />
         </Movie.Infos>
       </Movie.Root>
+
+      <Credits />
 
       {movie.belongs_to_collection && (
         <Collection collection={movie.belongs_to_collection} />

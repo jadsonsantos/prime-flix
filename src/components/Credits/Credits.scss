@@ -1,0 +1,26 @@
+@import '../../styles/mixins.scss';
+
+.credits {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+
+  &__item {
+    position: relative;
+  }
+
+  &__image {
+    border-radius: var(--border-radius);
+  }
+
+  &__name {
+    @include transparent-text();
+    @include bottom-positioned();
+
+    padding: 10px;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+  }
+}
