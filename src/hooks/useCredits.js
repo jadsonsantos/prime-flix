@@ -18,7 +18,7 @@ const useCredits = () => {
 
   useEffect(() => {
     fetchMovieCredits()
-  }, [])
+  }, [id])
 
   return { credits }
 }
