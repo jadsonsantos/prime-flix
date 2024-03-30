@@ -9,6 +9,18 @@
     line-height: 1.5;
   }
 
+  &__poster {
+    position: relative;
+  }
+
+  &__save {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+  }
+
   &__image {
     border-radius: var(--border-radius);
   }
@@ -43,15 +55,29 @@
   }
 
   &__buttons {
-    margin: 20px 0 0;
+    margin: 20px 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    a {
+      height: 20px;
+    }
   }
 
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: 40% 55%;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 50px;
   }
 }
