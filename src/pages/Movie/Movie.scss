@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .movie-page .movie {
   display: flex;
   flex-direction: column;
@@ -14,6 +16,8 @@
   }
 
   &__save {
+    @include transparent-text();
+    border-radius: 0 var(--border-radius) 0 0;
     position: absolute;
     top: 0;
     right: 0;

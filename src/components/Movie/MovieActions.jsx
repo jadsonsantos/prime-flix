@@ -14,7 +14,9 @@ const MovieActions = ({ movie }) => {
 
   const { homepage } = movie
 
-  const trailer = videos?.results.find((video) => video.site === 'YouTube')
+  const trailer = videos?.results.find(
+    (video) => video.site === 'YouTube' && video.type === 'Trailer'
+  )
 
   return (
     <>
