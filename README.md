@@ -1,6 +1,6 @@
 # Filmaria com ReactJS
 
-Este é um projeto de filmes desenvolvido com ReactJS. Ele permite listar filmes na tela consumindo a API do The Movie DB, adicionar filmes e remover filmes da lista de favoritos.
+Este é um projeto de filmes desenvolvido com ReactJS e Typescript. Ele permite listar filmes na tela consumindo a API do The Movie DB, adicionar filmes e remover filmes da lista de favoritos.
 
 ![Alt text](public/image.png)
 
@@ -18,4 +18,5 @@ Este é um projeto de filmes desenvolvido com ReactJS. Ele permite listar filmes
 - API do The Movie DB: utilizada para obter dados dos produtos.
 
 ## Link da aplicação
+
 https://primeflix-psi.vercel.app/
