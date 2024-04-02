@@ -1,0 +1,40 @@
+.person {
+  &__image {
+    img {
+      border-radius: var(--border-radius);
+    }
+  }
+
+  &__details {
+    max-width: 800px;
+  }
+
+  &__biography-item {
+    margin: 10px 0;
+
+    &:not(:last-of-type):after {
+      content: '.';
+    }
+  }
+
+  h2 {
+    margin: 20px 0;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  b {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 20px;
+
+    &__image {
+      min-width: 300px;
+    }
+  }
+}
