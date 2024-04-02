@@ -1,23 +1,30 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 import Loading from 'components/Loading'
 import Movies from 'components/Movies'
 import Title from 'components/Title'
 
-import useMovies from 'hooks/useMovies'
+import { useMoviesContext } from 'contexts/MoviesContext'
 
-import PropTypes from 'prop-types'
+interface MoviesContainerProps {
+  title: string
+  filter: string
+}
 
-const MoviesContainer = ({ title, filter }) => {
-  const { movies, loading, loadMovies } = useMovies()
+const MoviesContainer = ({ title, filter }: MoviesContainerProps) => {
+  const { moviesData, isLoading, fetchMovies } = useMoviesContext()
 
   useEffect(() => {
-    if (filter) loadMovies(filter)
+    fetchMovies(filter)
   }, [filter])
+
+  const movies = moviesData[filter] || []
+
+  console.log(moviesData)
 
   return (
     <div className="container">
-      {loading ? (
+      {isLoading ? (
         <Loading text="Carregando filmes..." />
       ) : (
         <>
@@ -27,11 +34,6 @@ const MoviesContainer = ({ title, filter }) => {
       )}
     </div>
   )
-}
-
-MoviesContainer.propTypes = {
-  title: PropTypes.string,
-  filter: PropTypes.string,
 }
 
 export default MoviesContainer
