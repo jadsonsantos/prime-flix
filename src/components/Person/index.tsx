@@ -1,9 +1,12 @@
+import { useEffect } from 'react'
+
 import ImageWithLoader from 'components/ImageWithLoader'
 import Title from 'components/Title'
 
 import './Person.scss'
 
 import usePersonDetails from 'hooks/usePersonDetails'
+import scrollToTop from 'utils/scrollToTop '
 
 import Details from './Details'
 
@@ -14,6 +17,10 @@ const Person = () => {
   const { name, profile_path, biography } = person
 
   const texts = biography.split('. ')
+
+  useEffect(() => {
+    scrollToTop()
+  }, [])
 
   return (
     <div className="person">
