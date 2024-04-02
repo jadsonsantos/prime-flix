@@ -20,8 +20,6 @@ const MoviesContainer = ({ title, filter }: MoviesContainerProps) => {
 
   const movies = moviesData[filter] || []
 
-  console.log(moviesData)
-
   return (
     <div className="container">
       {isLoading ? (

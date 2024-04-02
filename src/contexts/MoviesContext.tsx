@@ -22,6 +22,13 @@ interface MoviesContextType {
 
 const MoviesContext = createContext<MoviesContextType | undefined>(undefined)
 
+const initialMoviesData = {
+  now_playing: [],
+  popular: [],
+  top_rated: [],
+  upcoming: [],
+}
+
 export const useMoviesContext = () => {
   const context = useContext(MoviesContext)
 
@@ -31,15 +38,8 @@ export const useMoviesContext = () => {
   return context
 }
 
-const teste = {
-  now_playing: [],
-  popular: [],
-  top_rated: [],
-  upcoming: [],
-}
-
 const MoviesContextProvider = ({ children }: PropsWithChildren) => {
-  const [moviesData, setMoviesData] = useState<Movies>(teste)
+  const [moviesData, setMoviesData] = useState<Movies>(initialMoviesData)
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const fetchMovies = useCallback(
