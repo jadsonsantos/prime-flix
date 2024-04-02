@@ -1,6 +1,6 @@
 const options = {
   api_key: process.env.REACT_APP_MOVIEDB_API_KEY,
-  language: 'pt-BR',
+  language: 'en-US',
 }
 
 export default options

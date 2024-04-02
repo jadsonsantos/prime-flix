@@ -26,7 +26,7 @@ const useMovie = () => {
     loadMovie()
 
     return () => {}
-  }, [navigate, id])
+  }, [id])
 
   const saveMovie = () => {
     const myList = localStorage.getItem('@movies')
