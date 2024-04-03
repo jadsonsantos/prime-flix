@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Button from 'components/Button'
 import CustomLink from 'components/CustomLink'
 import Modal from 'components/Modal'
