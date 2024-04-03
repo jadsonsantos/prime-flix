@@ -29,10 +29,12 @@ const Details = ({ person }: DetailsProps) => {
           {formatedDeathday}
         </p>
       )}
-      <p>
-        <b>Local de nascimento: </b>
-        {place_of_birth}
-      </p>
+      {place_of_birth && (
+        <p>
+          <b>Local de nascimento: </b>
+          {place_of_birth}
+        </p>
+      )}
     </div>
   )
 }
