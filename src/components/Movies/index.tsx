@@ -1,9 +1,15 @@
-/* eslint-disable react/prop-types */
 import MovieItem from 'components/MovieItem'
+
+import Movie from 'interfaces/movie'
+import MovieCredits from 'interfaces/movieCredits'
 
 import './Movies.scss'
 
-const Movies = ({ movies }) => {
+interface MoviesProps {
+  movies: Movie[] | MovieCredits[]
+}
+
+const Movies = ({ movies }: MoviesProps) => {
   return (
     <section className="movies">
       {movies.map((movie) => (
