@@ -24,14 +24,18 @@ const initialPersonState = {
 
 const usePersonDetails = () => {
   const [person, setPerson] = useState<Person>(initialPersonState)
+  const [isLoading, setIsLoading] = useState(false)
   const { id } = useParams()
 
   const fetchPersonDetails = async () => {
     try {
+      setIsLoading(true)
       const response = await getPersonDetails(id as string)
       setPerson(response.data)
     } catch (error) {
       console.error('Erro ao buscar pessoa: ', error)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -39,7 +43,7 @@ const usePersonDetails = () => {
     fetchPersonDetails()
   }, [])
 
-  return { person }
+  return { person, isLoading }
 }
 
 export default usePersonDetails

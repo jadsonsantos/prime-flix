@@ -1,4 +1,4 @@
-import './App.scss'
+import './styles/App.scss'
 import { ToastContainer } from 'react-toastify'
 
 import MoviesContextProvider from 'contexts/MoviesContext'
