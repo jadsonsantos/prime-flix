@@ -30,6 +30,7 @@
         "newlinesBetween": "always",
         "groups": [
           ["/^react/"],
+          "/absolute/",
           "/module/",
           ["/pages/"],
           ["/components/"],
@@ -42,8 +43,8 @@
             "/assets/"
           ],
           "/^@shared/",
-          "/absolute/",
-          ["parent", "sibling", "index"]
+          ["parent", "sibling", "index"],
+          ["/\\.scss$/"]
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
