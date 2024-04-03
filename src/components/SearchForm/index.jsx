@@ -1,4 +1,6 @@
 import './SearchForm.scss'
+import { IoSearchOutline } from 'react-icons/io5'
+
 import useSearchForm from 'hooks/useSearchForm'
 
 const SearchForm = () => {
@@ -14,7 +16,7 @@ const SearchForm = () => {
         value={search}
       />
       <button className="search-form__button" type="submit">
-        Buscar
+        <IoSearchOutline />
       </button>
     </form>
   )

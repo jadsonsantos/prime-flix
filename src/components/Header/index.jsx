@@ -14,15 +14,15 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container header__container">
+        {isMobile && <MobileMenuButton />}
+
         <Link className="header__link header__logo" to="/">
           Prime Flix
         </Link>
 
-        {!isMobile && <SearchForm />}
+        <SearchForm />
 
         <Menu />
-
-        {isMobile && <MobileMenuButton />}
       </div>
     </header>
   )
