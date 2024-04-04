@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 import ImageWithLoader from 'components/ImageWithLoader'
 import Title from 'components/Title'
 
+import { API_IMAGE_URL } from 'constants/api'
 import useCredits from 'hooks/useCredits'
-
-import { API_IMAGE_URL } from 'constants'
 
 import './Credits.scss'
 

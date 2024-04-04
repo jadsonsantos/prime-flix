@@ -5,6 +5,7 @@ import propTypes from 'prop-types'
 export const MenuContext = createContext({
   isMenuActive: false,
   handleMobileMenuButton: () => {},
+  closeMenu: () => {},
 })
 
 const MenuContextProvider = ({ children }) => {

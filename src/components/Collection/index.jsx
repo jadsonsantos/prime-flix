@@ -3,9 +3,9 @@ import React, { useEffect } from 'react'
 import Movies from 'components/Movies'
 import Title from 'components/Title'
 
+import { API_IMAGE_URL } from 'constants'
 import useCollection from 'hooks/useCollection'
 
-import { API_IMAGE_URL } from 'constants'
 import PropTypes from 'prop-types'
 
 import './Collection.scss'
