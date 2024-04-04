@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect, ComponentProps } from 'react'
 
-import PropTypes from 'prop-types'
+type ImageWithLoaderProps = ComponentProps<'img'> & {
+  placeholderSrc: string
+}
 
 const ImageWithLoader = ({
   src,
   placeholderSrc,
   loading = 'lazy',
   ...rest
-}) => {
+}: ImageWithLoaderProps) => {
   const [imageSrc, setImageSrc] = useState(placeholderSrc)
 
   const style = {
@@ -17,17 +19,11 @@ const ImageWithLoader = ({
 
   useEffect(() => {
     const img = new Image()
-    img.src = src
-    img.onload = () => setImageSrc(src)
+    img.src = src!
+    img.onload = () => setImageSrc(src!)
   }, [src])
 
   return <img style={style} src={imageSrc} loading={loading} {...rest} />
-}
-
-ImageWithLoader.propTypes = {
-  src: PropTypes.string,
-  loading: PropTypes.string,
-  placeholderSrc: PropTypes.string,
 }
 
 export default ImageWithLoader

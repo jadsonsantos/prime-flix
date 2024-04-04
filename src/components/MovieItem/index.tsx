@@ -1,14 +1,20 @@
-/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom'
 
 import useFavorites from 'pages/Favorites/useFavorites'
 
-import './MovieItem.scss'
 import ImageWithLoader from 'components/ImageWithLoader'
 
-import { API_IMAGE_URL } from 'constants'
+import { API_IMAGE_URL } from 'constants/api'
+import Movie from 'interfaces/movie'
+import MovieCredits from 'interfaces/movieCredits'
 
-const MovieItem = ({ movie }) => {
+import './MovieItem.scss'
+
+interface MovieProps {
+  movie: Movie | MovieCredits
+}
+
+const MovieItem = ({ movie }: MovieProps) => {
   const { deleteMovie } = useFavorites()
 
   return (
