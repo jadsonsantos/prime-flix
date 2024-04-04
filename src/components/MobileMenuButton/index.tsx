@@ -1,6 +1,6 @@
 import { useContext } from 'react'
+import { VscMenu } from 'react-icons/vsc'
 
-import { ReactComponent as MenuIcon } from 'assets/icons/hamburguer.svg'
 import { MenuContext } from 'contexts/menu'
 
 import './MobileMenuButton.scss'
@@ -16,7 +16,7 @@ const MobileMenuButton = () => {
       className={`menu-button ${isActiveClassName}`}
       onClick={handleMobileMenuButton}
     >
-      <MenuIcon />
+      <VscMenu color="#fff" size={25} />
     </button>
   )
 }

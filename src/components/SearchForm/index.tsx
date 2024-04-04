@@ -1,7 +1,8 @@
-import './SearchForm.scss'
 import { IoSearchOutline } from 'react-icons/io5'
 
 import useSearchForm from 'hooks/useSearchForm'
+
+import './SearchForm.scss'
 
 const SearchForm = () => {
   const { search, setSearch, handleSubmit } = useSearchForm()
