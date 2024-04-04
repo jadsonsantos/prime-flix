@@ -40,9 +40,10 @@
             "/hooks/",
             "/contexts/",
             "/data/",
-            "/assets/"
+            "/assets/",
+            "/interfaces/",
+            "/constants/"
           ],
-          "/^@shared/",
           ["parent", "sibling", "index"],
           ["/\\.scss$/"]
         ],
