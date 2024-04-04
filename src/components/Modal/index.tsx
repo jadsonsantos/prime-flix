@@ -1,9 +1,12 @@
-import React from 'react'
-
 import './Modal.scss'
-import PropTypes from 'prop-types'
 
-const Modal = ({ youtubeID, isOpen, onClose }) => {
+interface ModalProps {
+  youtubeID: string
+  isOpen: boolean
+  onClose: () => void
+}
+
+const Modal = ({ youtubeID, isOpen, onClose }: ModalProps) => {
   const customClassName = isOpen ? 'modal modal--open' : 'modal'
 
   return (
@@ -21,12 +24,6 @@ const Modal = ({ youtubeID, isOpen, onClose }) => {
       </div>
     </div>
   )
-}
-
-Modal.propTypes = {
-  youtubeID: PropTypes.string,
-  isOpen: PropTypes.bool,
-  onClose: PropTypes.func,
 }
 
 export default Modal
