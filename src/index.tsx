@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import './styles/index.css'
-import MenuContextProvider from 'contexts/menu'
+import MenuContextProvider from 'contexts/menuContext'
 
 import App from './App'
 import reportWebVitals from './reportWebVitals'
