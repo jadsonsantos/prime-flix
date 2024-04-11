@@ -1,12 +1,11 @@
-import { useContext } from 'react'
 import { VscMenu } from 'react-icons/vsc'
 
-import { MenuContext } from 'contexts/menu'
+import { useMenuContext } from 'contexts/menuContext'
 
 import './MobileMenuButton.scss'
 
 const MobileMenuButton = () => {
-  const { isMenuActive, handleMobileMenuButton } = useContext(MenuContext)
+  const { isMenuActive, handleMobileMenuButton } = useMenuContext()
 
   const isActiveClassName = isMenuActive ? 'menu-button--active' : ''
 
