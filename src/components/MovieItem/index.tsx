@@ -33,7 +33,6 @@ const MovieItem = ({ movie }: MovieProps) => {
           alt={movie.title}
           title={movie.title}
           className="movie-item__image"
-          loading="lazy"
           width={385}
           height={580}
         />
