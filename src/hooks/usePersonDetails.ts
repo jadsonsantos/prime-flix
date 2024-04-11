@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import getPersonDetails from 'services/getPersonDetails'
-
 import Person from 'interfaces/person'
+import getPersonDetails from 'services/getPersonDetails'
 
 const initialPersonState = {
   adult: false,
