@@ -4,9 +4,8 @@ import { FaRegHeart } from 'react-icons/fa'
 
 import ImageWithLoader from 'components/ImageWithLoader'
 
-import useMovie from 'hooks/useMovie'
-
 import { API_IMAGE_URL } from 'constants'
+import useMovie from 'hooks/useMovie'
 
 const MoviePoster = ({ movie }) => {
   const { poster_path, title } = movie

@@ -7,7 +7,6 @@ type ImageWithLoaderProps = ComponentProps<'img'> & {
 const ImageWithLoader = ({
   src,
   placeholderSrc,
-  loading = 'lazy',
   ...rest
 }: ImageWithLoaderProps) => {
   const [imageSrc, setImageSrc] = useState(placeholderSrc)
@@ -23,7 +22,7 @@ const ImageWithLoader = ({
     img.onload = () => setImageSrc(src!)
   }, [src])
 
-  return <img style={style} src={imageSrc} loading={loading} {...rest} />
+  return <img style={style} src={imageSrc} {...rest} />
 }
 
 export default ImageWithLoader

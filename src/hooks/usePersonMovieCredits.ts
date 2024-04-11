@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import getPersonMovieCredits from 'services/getPersonMovieCredits'
-
 import MovieCredits from 'interfaces/movieCredits'
+import getPersonMovieCredits from 'services/getPersonMovieCredits'
 
 const initialPersonMovieCreditsState: MovieCredits[] = []
 

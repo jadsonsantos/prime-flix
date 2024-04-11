@@ -11,6 +11,11 @@
     flex-direction: column;
   }
 
+  &__item--active .menu__link,
+  &__item:hover .menu__link {
+    color: var(--color-yellow);
+  }
+
   &__link {
     display: inline-block;
     color: #fff;

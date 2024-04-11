@@ -5,12 +5,11 @@ import Title from 'components/Title'
 
 import './Person.scss'
 
+import { API_IMAGE_URL } from 'constants/api'
 import usePersonDetails from 'hooks/usePersonDetails'
 import scrollToTop from 'utils/scrollToTop '
 
 import Details from './Details'
-
-import { API_IMAGE_URL } from 'constants/api'
 
 const Person = () => {
   const { person } = usePersonDetails()

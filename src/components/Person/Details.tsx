@@ -1,7 +1,6 @@
+import Person from 'interfaces/person'
 import formateDate from 'utils/formateDate'
 import getGenderStrings from 'utils/getGenderStrings'
-
-import Person from 'interfaces/person'
 
 interface DetailsProps {
   person: Person
@@ -19,10 +18,12 @@ const Details = ({ person }: DetailsProps) => {
         <b>Gênero: </b>
         {getGenderStrings(gender)}
       </p>
-      <p>
-        <b>Nascimento: </b>
-        {formatedBirthday}
-      </p>
+      {birthday && (
+        <p>
+          <b>Nascimento: </b>
+          {formatedBirthday}
+        </p>
+      )}
       {deathday && (
         <p>
           <b>Falecimento: </b>
