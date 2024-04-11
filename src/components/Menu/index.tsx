@@ -1,30 +1,42 @@
-import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
-import { MenuContext } from 'contexts/menu'
+import { useMenuContext } from 'contexts/menuContext'
 import menu from 'data/menu'
 
 import './Menu.scss'
 
 const Menu = () => {
-  const { isMenuActive, closeMenu } = useContext(MenuContext)
+  const { isMenuActive, closeMenu } = useMenuContext()
+  const { pathname } = useLocation()
 
-  const isActiveClassName = isMenuActive ? 'menu--active' : ''
+  const navClassName = isMenuActive ? 'menu menu--active' : 'menu'
+
+  const isActiveLink = (link: string) => link === pathname
 
   const handleItemMenuClick = () => {
     closeMenu()
   }
 
   return (
-    <nav className={`menu ${isActiveClassName}`}>
+    <nav className={navClassName}>
       <ul className="menu__list">
-        {menu.map(({ name, link }) => (
-          <li key={name} className="menu__item" onClick={handleItemMenuClick}>
-            <Link to={link} className="menu__link">
-              {name}
-            </Link>
-          </li>
-        ))}
+        {menu.map(({ name, link }) => {
+          const liClassName = isActiveLink(link)
+            ? 'menu__item menu__item--active'
+            : 'menu__item'
+
+          return (
+            <li
+              key={name}
+              className={liClassName}
+              onClick={handleItemMenuClick}
+            >
+              <Link to={link} className="menu__link">
+                {name}
+              </Link>
+            </li>
+          )
+        })}
       </ul>
     </nav>
   )
