@@ -6,9 +6,8 @@ import {
   useState,
 } from 'react'
 
-import getMovies from 'services/getMovies'
-
 import Movie from 'interfaces/movie'
+import getMovies from 'services/getMovies'
 
 interface Movies {
   [key: string]: Movie[]
