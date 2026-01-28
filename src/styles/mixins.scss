@@ -1,6 +1,6 @@
 @mixin transparent-text {
   border-radius: 0 0 8px 8px;
-  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
   color: #f1f1f1;
 }
 
@@ -20,4 +20,52 @@
   @media (min-width: 1025px) {
     @content;
   }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@mixin scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin gradient-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(10, 10, 10, 1) 0%,
+    rgba(10, 10, 10, 0.8) 30%,
+    rgba(10, 10, 10, 0.4) 60%,
+    rgba(10, 10, 10, 0) 100%
+  );
+}
+
+@mixin text-ellipsis($lines: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
