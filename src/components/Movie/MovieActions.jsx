@@ -1,3 +1,5 @@
+import { FaPlay, FaExternalLinkAlt } from 'react-icons/fa'
+
 import Button from 'components/Button'
 import CustomLink from 'components/CustomLink'
 import Modal from 'components/Modal'
@@ -40,23 +42,26 @@ const MovieActions = ({ movie }) => {
                   href={`https://www.youtube.com/watch?v=${trailer.key}`}
                   title="Assistir ao trailer no Youtube"
                 >
+                  <FaPlay size={12} />
                   Trailer
                 </CustomLink>
               </Button>
             ) : (
               <Button variation={'primary'} onClick={handleOpenModal}>
+                <FaPlay size={12} />
                 Trailer
               </Button>
             )}
           </>
         )}
-        {homepage.length > 0 && (
+        {homepage && homepage.length > 0 && (
           <Button variation={'secondary'}>
             <CustomLink
               href={homepage}
               className="movie__icon"
               title="Ir para o site oficial"
             >
+              <FaExternalLinkAlt size={12} />
               Site oficial
             </CustomLink>
           </Button>
