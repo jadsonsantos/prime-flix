@@ -1,6 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import Favorites from 'pages/Favorites'
+import Home from 'pages/Home'
 import Movie from 'pages/Movie'
 import MoviesContainer from 'pages/MoviesContainer'
 import NotFound from 'pages/NotFound'
@@ -10,7 +11,7 @@ import Search from 'pages/Search'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 
-import { NOW_PLAYING, POPULAR, TOP_RATED, UPCOMING } from 'constants/filters'
+import { POPULAR, TOP_RATED, UPCOMING } from 'constants/filters'
 import {
   FAVORITES_ROUTE,
   HOME_ROUTE,
@@ -24,10 +25,7 @@ const RoutesApp = () => (
     <Header />
     <main className="main">
       <Routes>
-        <Route
-          path={HOME_ROUTE}
-          element={<MoviesContainer title="Em exibição" filter={NOW_PLAYING} />}
-        />
+        <Route path={HOME_ROUTE} element={<Home />} />
         <Route
           path={POPULAR_ROUTE}
           element={<MoviesContainer title="Populares" filter={POPULAR} />}
