@@ -1,40 +1,148 @@
+@import '../../styles/mixins.scss';
+
 .person {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 50px;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  &__sidebar {
+    flex-shrink: 0;
+
+    @include tablet {
+      width: 280px;
+    }
+
+    @include desktop {
+      width: 320px;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    border: 3px solid var(--color-primary);
+  }
+
   &__image {
-    img {
-      border-radius: var(--border-radius);
-    }
-  }
-
-  &__details {
-    max-width: 800px;
-  }
-
-  &__biography-item {
-    margin: 10px 0;
-
-    &:not(:last-of-type):after {
-      content: '.';
-    }
-  }
-
-  h2 {
-    margin: 20px 0;
-  }
-
-  p {
-    margin: 20px 0;
-  }
-
-  b {
+    width: 100%;
+    height: auto;
     display: block;
   }
 
-  @media (min-width: 768px) {
+  &__no-image {
+    aspect-ratio: 2/3;
     display: flex;
-    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-card);
+    color: var(--text-muted);
+  }
 
-    &__image {
-      max-width: 300px;
+  &__content {
+    flex: 1;
+  }
+
+  &__popularity {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background-color: var(--color-primary);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  &__popularity-star {
+    font-size: 12px;
+  }
+
+  &__name {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 24px;
+    line-height: 1.2;
+
+    @include tablet {
+      font-size: 44px;
+    }
+  }
+
+  &__info-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+
+    @include tablet {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__info-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--bg-hover);
+    border-radius: var(--border-radius);
+    padding: 16px;
+  }
+
+  &__info-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+
+    svg {
+      font-size: 12px;
+    }
+  }
+
+  &__info-value {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  &__info-death {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  &__section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 16px;
+  }
+
+  &__biography {
+    margin-top: 32px;
+  }
+
+  &__biography-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0 0 16px;
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
