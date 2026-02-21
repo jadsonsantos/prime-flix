@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
 
 import formatCurrency from 'utils/formatCurrency'
 
@@ -14,42 +13,45 @@ const MovieDetails = ({ movie }) => {
 
   return (
     <article className="movie__details">
-      <h3>Detalhes</h3>
-      <p>
-        <strong>Título original:</strong> {original_title}
-      </p>
-      {production_companies.length > 0 && (
-        <p>
-          <strong>Produtoras: </strong>
-          {production_companies.map((item, index) => (
-            <span key={item.id}>
-              {item.name}
-              {index < production_companies.length - 1 && ','}{' '}
+      <h3 className="movie__section-title">Detalhes</h3>
+      <div className="movie__details-list">
+        <div className="movie__detail-item">
+          <span className="movie__detail-label">Título original:</span>
+          <span className="movie__detail-value">{original_title}</span>
+        </div>
+        {production_companies && production_companies.length > 0 && (
+          <div className="movie__detail-item">
+            <span className="movie__detail-label">Produtoras:</span>
+            <span className="movie__detail-value">
+              {production_companies.map((item) => item.name).join(', ')}
             </span>
-          ))}
-        </p>
-      )}
-      {production_countries.length > 0 && (
-        <p>
-          <strong>Países de origem:</strong>{' '}
-          {production_countries.map((item, index) => (
-            <span key={item.name}>
-              {item.name}
-              {index < production_countries.length - 1 && ','}{' '}
+          </div>
+        )}
+        {production_countries && production_countries.length > 0 && (
+          <div className="movie__detail-item">
+            <span className="movie__detail-label">País de origem:</span>
+            <span className="movie__detail-value">
+              {production_countries.map((item) => item.name).join(', ')}
             </span>
-          ))}
-        </p>
-      )}
-      {budget > 0 && (
-        <p>
-          <strong>Orçamento:</strong> {formatCurrency(budget)}
-        </p>
-      )}
-      {revenue > 0 && (
-        <p>
-          <strong>Receita:</strong> {formatCurrency(revenue)}
-        </p>
-      )}
+          </div>
+        )}
+        {budget > 0 && (
+          <div className="movie__detail-item">
+            <span className="movie__detail-label">Orçamento:</span>
+            <span className="movie__detail-value">
+              {formatCurrency(budget)}
+            </span>
+          </div>
+        )}
+        {revenue > 0 && (
+          <div className="movie__detail-item">
+            <span className="movie__detail-label">Receita:</span>
+            <span className="movie__detail-value movie__detail-value--highlight">
+              {formatCurrency(revenue)}
+            </span>
+          </div>
+        )}
+      </div>
     </article>
   )
 }
