@@ -1,8 +1,14 @@
-import { FaGithub, FaTwitter, FaInstagram } from 'react-icons/fa'
+import { FaGithub, FaInstagram, FaTwitter } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 import CustomLink from 'components/CustomLink'
 
+import {
+  NOW_PLAYING_ROUTE,
+  POPULAR_ROUTE,
+  TOP_RATED_ROUTE,
+  UPCOMING_ROUTE,
+} from 'constants/routes'
 import './Footer.scss'
 
 const Footer = () => {
@@ -44,16 +50,16 @@ const Footer = () => {
               <h4 className="footer__column-title">Navegação</h4>
               <ul className="footer__list">
                 <li>
-                  <Link to="/">Em exibição</Link>
+                  <Link to={NOW_PLAYING_ROUTE}>Em exibição</Link>
                 </li>
                 <li>
-                  <Link to="/popular">Populares</Link>
+                  <Link to={POPULAR_ROUTE}>Populares</Link>
                 </li>
                 <li>
-                  <Link to="/top-rated">Mais votados</Link>
+                  <Link to={TOP_RATED_ROUTE}>Mais votados</Link>
                 </li>
                 <li>
-                  <Link to="/upcoming">Em breve</Link>
+                  <Link to={UPCOMING_ROUTE}>Em breve</Link>
                 </li>
               </ul>
             </div>

@@ -1,6 +1,6 @@
 import {
   FAVORITES_ROUTE,
-  HOME_ROUTE,
+  NOW_PLAYING_ROUTE,
   POPULAR_ROUTE,
   TOP_RATED_ROUTE,
   UPCOMING_ROUTE,
@@ -9,7 +9,7 @@ import {
 const menu = [
   {
     name: 'Em exibição',
-    link: `${HOME_ROUTE}`,
+    link: `${NOW_PLAYING_ROUTE}`,
   },
   {
     name: 'Populares',

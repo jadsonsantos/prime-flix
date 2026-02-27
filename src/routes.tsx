@@ -11,10 +11,11 @@ import Search from 'pages/Search'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 
-import { POPULAR, TOP_RATED, UPCOMING } from 'constants/filters'
+import { NOW_PLAYING, POPULAR, TOP_RATED, UPCOMING } from 'constants/filters'
 import {
   FAVORITES_ROUTE,
   HOME_ROUTE,
+  NOW_PLAYING_ROUTE,
   POPULAR_ROUTE,
   TOP_RATED_ROUTE,
   UPCOMING_ROUTE,
@@ -26,6 +27,10 @@ const RoutesApp = () => (
     <main className="main">
       <Routes>
         <Route path={HOME_ROUTE} element={<Home />} />
+        <Route
+          path={NOW_PLAYING_ROUTE}
+          element={<MoviesContainer title="Em exibição" filter={NOW_PLAYING} />}
+        />
         <Route
           path={POPULAR_ROUTE}
           element={<MoviesContainer title="Populares" filter={POPULAR} />}
