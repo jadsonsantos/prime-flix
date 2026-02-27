@@ -1,4 +1,4 @@
-import { FaGithub, FaTwitter, FaInstagram } from 'react-icons/fa'
+import { FaGithub, FaInstagram, FaTwitter } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 import CustomLink from 'components/CustomLink'
@@ -44,7 +44,7 @@ const Footer = () => {
               <h4 className="footer__column-title">Navegação</h4>
               <ul className="footer__list">
                 <li>
-                  <Link to="/">Em exibição</Link>
+                  <Link to="/em-exibicao">Em exibição</Link>
                 </li>
                 <li>
                   <Link to="/popular">Populares</Link>

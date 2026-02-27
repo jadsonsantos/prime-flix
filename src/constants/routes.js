@@ -1,4 +1,5 @@
 export const HOME_ROUTE = '/'
+export const NOW_PLAYING_ROUTE = '/em-exibicao'
 export const POPULAR_ROUTE = '/popular'
 export const TOP_RATED_ROUTE = '/top'
 export const UPCOMING_ROUTE = '/em-breve'
