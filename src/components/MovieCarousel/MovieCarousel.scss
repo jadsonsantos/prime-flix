@@ -1,0 +1,66 @@
+@import '../../styles/mixins.scss';
+
+.movie-carousel {
+  margin-bottom: var(--section-gap);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .title {
+      margin: 0;
+      font-size: 20px;
+
+      @include tablet {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--bg-hover);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: var(--bg-hover);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include scrollbar-hidden;
+
+    @include tablet {
+      gap: 20px;
+    }
+  }
+}

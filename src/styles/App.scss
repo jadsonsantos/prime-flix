@@ -1,26 +1,56 @@
 @import './index.scss';
 
 :root {
-  --header-heigth: 70px;
+  --header-height: 70px;
   --border-radius: 8px;
+  --border-radius-lg: 16px;
+
+  // Colors
+  --color-primary: #C7070E;
+  --color-primary-dark: #a00008;
   --color-yellow: #f7d354;
+  --color-green: #22c55e;
+
+  // Background colors
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-card: #1a1a1a;
+  --bg-hover: #252525;
+
+  // Text colors
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1a1;
+  --text-muted: #6b6b6b;
+
+  // Spacing
+  --container-max-width: 1400px;
+  --section-gap: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .container {
   margin: 0 auto;
   padding: 0 20px;
-  max-width: 1110px;
+  max-width: var(--container-max-width);
 }
 
 .App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-primary);
 }
 
 .main {
   flex: 1 0 auto;
-  margin: 30px 0;
 }
 
 .footer {
@@ -31,8 +61,142 @@
   display: block;
 }
 
+// Section title with navigation arrows
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--bg-hover);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--bg-hover);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Badge styles
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &--new {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  &--trending {
+    background-color: var(--color-green);
+    color: white;
+  }
+
+  &--top10 {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  &--upcoming {
+    background-color: #3b82f6;
+    color: white;
+  }
+}
+
+// Genre tags
+.genre-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid var(--text-muted);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+// Rating star
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-yellow);
+  font-weight: 600;
+
+  &__star {
+    color: var(--color-yellow);
+  }
+
+  &__value {
+    color: var(--text-primary);
+  }
+}
+
+// Info cards (for person page)
+.info-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--bg-hover);
+  border-radius: var(--border-radius);
+  padding: 16px 20px;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  &__value {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+}
+
+.movie-page,
+.person-page,
+.favorites-page,
+.movies-page,
+.search-page {
+  padding-top: 20px;
+}
+
 @media (min-width: 768px) {
   .main {
-    margin: 40px 0;
   }
 }

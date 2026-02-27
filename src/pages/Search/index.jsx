@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import Loading from 'components/Loading'
@@ -23,16 +23,18 @@ const Search = () => {
   }
 
   return (
-    <div className="container">
-      {movies.length > 0 ? (
-        <>
-          <Title>Resultados para: {query}</Title>
-          <Movies movies={movies} />
-        </>
-      ) : (
-        <p>Não foram encontrados resultados para sua busca</p>
-      )}
-    </div>
+    <section className="search-page">
+      <div className="container">
+        {movies.length > 0 ? (
+          <>
+            <Title>Resultados para: {query}</Title>
+            <Movies movies={movies} />
+          </>
+        ) : (
+          <p>Não foram encontrados resultados para sua busca</p>
+        )}
+      </div>
+    </section>
   )
 }
 

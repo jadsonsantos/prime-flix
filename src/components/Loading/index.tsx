@@ -9,8 +9,8 @@ interface LoadingProps {
 const Loading = ({ text }: LoadingProps) => {
   return (
     <section className="loading">
-      {text}
-      <ClipLoader size={50} color="#000" />
+      <ClipLoader size={50} color="#C7070E" />
+      <span className="loading__text">{text}</span>
     </section>
   )
 }

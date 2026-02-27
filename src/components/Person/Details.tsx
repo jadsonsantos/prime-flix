@@ -1,3 +1,5 @@
+import { FaUser, FaCalendarAlt, FaMapMarkerAlt, FaFilm } from 'react-icons/fa'
+
 import Person from 'interfaces/person'
 import formateDate from 'utils/formateDate'
 import getGenderStrings from 'utils/getGenderStrings'
@@ -7,34 +9,54 @@ interface DetailsProps {
 }
 
 const Details = ({ person }: DetailsProps) => {
-  const { birthday, place_of_birth, deathday, gender } = person
+  const { birthday, place_of_birth, deathday, gender, known_for_department } =
+    person
   const formatedBirthday = formateDate(birthday)
   const formatedDeathday = formateDate(deathday)
 
   return (
-    <div>
-      <h2>Informações pessoais</h2>
-      <p>
-        <b>Gênero: </b>
-        {getGenderStrings(gender)}
-      </p>
+    <div className="person__info-cards">
+      <div className="person__info-card">
+        <div className="person__info-label">
+          <FaUser />
+          <span>GÊNERO</span>
+        </div>
+        <div className="person__info-value">{getGenderStrings(gender)}</div>
+      </div>
+
       {birthday && (
-        <p>
-          <b>Nascimento: </b>
-          {formatedBirthday}
-        </p>
+        <div className="person__info-card">
+          <div className="person__info-label">
+            <FaCalendarAlt />
+            <span>NASCIMENTO</span>
+          </div>
+          <div className="person__info-value">{formatedBirthday}</div>
+          {deathday && (
+            <div className="person__info-death">
+              Falecimento: {formatedDeathday}
+            </div>
+          )}
+        </div>
       )}
-      {deathday && (
-        <p>
-          <b>Falecimento: </b>
-          {formatedDeathday}
-        </p>
-      )}
+
       {place_of_birth && (
-        <p>
-          <b>Local de nascimento: </b>
-          {place_of_birth}
-        </p>
+        <div className="person__info-card">
+          <div className="person__info-label">
+            <FaMapMarkerAlt />
+            <span>LOCAL</span>
+          </div>
+          <div className="person__info-value">{place_of_birth}</div>
+        </div>
+      )}
+
+      {known_for_department && (
+        <div className="person__info-card">
+          <div className="person__info-label">
+            <FaFilm />
+            <span>CONHECIDO POR</span>
+          </div>
+          <div className="person__info-value">{known_for_department}</div>
+        </div>
       )}
     </div>
   )

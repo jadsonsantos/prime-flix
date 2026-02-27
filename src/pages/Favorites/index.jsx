@@ -7,7 +7,7 @@ const Favorites = () => {
   const { movies } = useFavorites()
 
   return (
-    <section className="favorites">
+    <section className="favorites-page">
       <div className="container">
         <Title>Meus filmes</Title>
         {movies.length > 0 ? (

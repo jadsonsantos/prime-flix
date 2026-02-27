@@ -1,13 +1,16 @@
 .header {
   width: 100%;
-  background-color: black;
-  position: relative;
+  background-color: var(--bg-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--bg-hover);
 
   &__container {
-    height: var(--header-heigth);
+    height: var(--header-height);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 20px;
   }
 
   &__link {
@@ -16,13 +19,65 @@
   }
 
   &__logo {
-    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
     font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  &__logo-icon {
+    font-size: 24px;
+  }
+
+  &__logo-text {
+    color: var(--text-primary);
+  }
+
+  &__logo-accent {
+    color: var(--color-primary);
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  &__icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: none;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 20px;
+
+    &:hover {
+      background-color: var(--bg-hover);
+    }
   }
 
   @media (min-width: 769px) {
     &__logo {
-      font-size: 30px;
+      font-size: 24px;
+    }
+
+    &__logo-icon {
+      font-size: 28px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .search-form {
+      display: none;
     }
   }
 }

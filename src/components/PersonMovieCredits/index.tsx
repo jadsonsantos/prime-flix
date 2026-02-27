@@ -1,16 +1,18 @@
-import Movies from 'components/Movies'
-import Title from 'components/Title'
+import MovieCarousel from 'components/MovieCarousel'
 
 import usePersonMovieCredits from 'hooks/usePersonMovieCredits'
 
 const PersonMovieCredits = () => {
   const { personMovieCredits } = usePersonMovieCredits()
 
+  if (!personMovieCredits || personMovieCredits.length === 0) return null
+
   return (
-    <>
-      <Title>Aparece em:</Title>
-      <Movies movies={personMovieCredits} />
-    </>
+    <MovieCarousel
+      title="Aparece em"
+      movies={personMovieCredits}
+      showCharacter
+    />
   )
 }
 

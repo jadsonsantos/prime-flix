@@ -21,16 +21,18 @@ const MoviesContainer = ({ title, filter }: MoviesContainerProps) => {
   const movies = moviesData[filter] || []
 
   return (
-    <div className="container">
-      {isLoading ? (
-        <Loading text="Carregando filmes..." />
-      ) : (
-        <>
-          <Title>{title}</Title>
-          {movies.length > 0 && <Movies movies={movies} />}
-        </>
-      )}
-    </div>
+    <section className="movies-page">
+      <div className="container">
+        {isLoading ? (
+          <Loading text="Carregando filmes..." />
+        ) : (
+          <>
+            <Title>{title}</Title>
+            {movies.length > 0 && <Movies movies={movies} />}
+          </>
+        )}
+      </div>
+    </section>
   )
 }
 

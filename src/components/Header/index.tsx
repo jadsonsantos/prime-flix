@@ -1,12 +1,14 @@
+import { FiUser } from 'react-icons/fi'
+import { IoBookmarkOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 
 import Menu from 'components/Menu'
 import MobileMenuButton from 'components/MobileMenuButton'
 import SearchForm from 'components/SearchForm'
 
-import './Header.scss'
-
 import useIsMobile from 'hooks/useIsMobile'
+
+import './Header.scss'
 
 const Header = () => {
   const { isMobile } = useIsMobile()
@@ -17,12 +19,27 @@ const Header = () => {
         {isMobile && <MobileMenuButton />}
 
         <Link className="header__link header__logo" to="/">
-          Prime Flix
+          <span className="header__logo-icon">🎬</span>
+          <span className="header__logo-text">
+            Prime<span className="header__logo-accent">Flix</span>
+          </span>
         </Link>
 
-        <SearchForm />
-
         <Menu />
+
+        <div className="header__actions">
+          <SearchForm />
+          <Link
+            to="/favoritos"
+            className="header__icon-btn"
+            title="Meus filmes"
+          >
+            <IoBookmarkOutline />
+          </Link>
+          <button className="header__icon-btn" title="Perfil">
+            <FiUser />
+          </button>
+        </div>
       </div>
     </header>
   )

@@ -17,7 +17,16 @@ const usePersonMovieCredits = () => {
     try {
       setIsLoading(true)
       const response = await getPersonMovieCredits(id as string)
-      setPersonMovieCredits(response.data.cast.slice(0, 4))
+      // Sort by release date (most recent first) and take top 12
+      const sortedCredits = response.data.cast
+        .filter((movie: MovieCredits) => movie.poster_path)
+        .sort((a: MovieCredits, b: MovieCredits) => {
+          const dateA = a.release_date ? new Date(a.release_date).getTime() : 0
+          const dateB = b.release_date ? new Date(b.release_date).getTime() : 0
+          return dateB - dateA
+        })
+        .slice(0, 12)
+      setPersonMovieCredits(sortedCredits)
     } catch (error) {
       console.error('Erro ao buscar créditos: ', error)
     } finally {
@@ -27,7 +36,7 @@ const usePersonMovieCredits = () => {
 
   useEffect(() => {
     fetchPersonMovieCredits()
-  }, [])
+  }, [id])
 
   return { personMovieCredits, isLoading }
 }
