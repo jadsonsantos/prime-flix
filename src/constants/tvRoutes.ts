@@ -1,0 +1,6 @@
+export const TV_HOME_ROUTE = '/series'
+export const AIRING_TODAY_ROUTE = '/series/exibindo-hoje'
+export const ON_THE_AIR_ROUTE = '/series/no-ar'
+export const POPULAR_TV_ROUTE = '/series/populares'
+export const TOP_RATED_TV_ROUTE = '/series/mais-votadas'
+export const TV_DETAILS_ROUTE = '/series/:id'
