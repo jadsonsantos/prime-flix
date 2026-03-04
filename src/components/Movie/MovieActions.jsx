@@ -12,8 +12,8 @@ import MovieLinks from './MovieLinks'
 
 import PropTypes, { shape } from 'prop-types'
 
-const MovieActions = ({ movie }) => {
-  const { videos } = useVideos()
+const MovieActions = ({ movie, isTvShow = false }) => {
+  const { videos } = useVideos(isTvShow)
   const { isMobile } = useIsMobile()
   const { handleOpenModal, handleCloseModal, isOpen } = useModal()
 
@@ -77,6 +77,7 @@ MovieActions.propTypes = {
     title: PropTypes.string,
     homepage: PropTypes.string,
   }),
+  isTvShow: PropTypes.bool,
 }
 
 export default MovieActions

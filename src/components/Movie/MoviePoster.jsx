@@ -7,9 +7,10 @@ import ImageWithLoader from 'components/ImageWithLoader'
 import { API_IMAGE_URL } from 'constants'
 import useMovie from 'hooks/useMovie'
 
-const MoviePoster = ({ movie }) => {
+const MoviePoster = ({ movie, onSave }) => {
   const { poster_path, title } = movie
-  const { saveMovie } = useMovie()
+  const movieHook = useMovie(Boolean(onSave))
+  const handleSave = onSave ?? movieHook.saveMovie
 
   const urlImage = poster_path ? `${API_IMAGE_URL}${poster_path}` : null
 
@@ -17,7 +18,7 @@ const MoviePoster = ({ movie }) => {
     <article className="movie__poster">
       <button
         className="movie__save"
-        onClick={saveMovie}
+        onClick={handleSave}
         title="Adicionar aos favoritos"
         aria-label="Adicionar aos favoritos"
       >
