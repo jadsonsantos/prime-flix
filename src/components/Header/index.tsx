@@ -32,7 +32,7 @@ const Header = () => {
           <Link
             to="/favoritos"
             className="header__icon-btn"
-            title="Meus filmes"
+            title="Meus favoritos"
           >
             <IoBookmarkOutline />
           </Link>

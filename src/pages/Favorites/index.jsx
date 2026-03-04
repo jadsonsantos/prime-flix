@@ -9,11 +9,11 @@ const Favorites = () => {
   return (
     <section className="favorites-page">
       <div className="container">
-        <Title>Meus filmes</Title>
+        <Title>Meus favoritos</Title>
         {movies.length > 0 ? (
           <Movies movies={movies} />
         ) : (
-          <p>Você não possui filmes salvos</p>
+          <p>Você não possui favoritos salvos</p>
         )}
       </div>
     </section>
