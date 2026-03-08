@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
+import Favorite from 'interfaces/favorite'
 import Tv from 'interfaces/tv'
 import { fetchTvDetails } from 'services/tvService'
 import { normalizeTvToFavorite } from 'utils/normalizers'
@@ -39,10 +40,9 @@ const useTvDetails = (): UseTvDetailsReturn => {
     if (!tvShow) return
 
     const myList = localStorage.getItem('@favorites')
-    const savedFavorites = JSON.parse(myList as string) || []
+    const savedFavorites = JSON.parse(myList ?? '[]') as Favorite[]
     const hasFavorite = savedFavorites.some(
-      (item: { id: number; mediaType: string }) =>
-        item.id === tvShow.id && item.mediaType === 'tv'
+      (item: Favorite) => item.id === tvShow.id && item.mediaType === 'tv'
     )
 
     if (hasFavorite) {

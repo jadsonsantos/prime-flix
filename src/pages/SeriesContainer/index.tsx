@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import { useEffect } from 'react'
 
 import MediaCard from 'components/MovieCard'
 import Title from 'components/Title'
 
+import useTv from 'hooks/useTv'
 import Tv from 'interfaces/tv'
-import { fetchTvList } from 'services/tvService'
 
 import 'components/Movies/Movies.scss'
 
@@ -15,23 +14,13 @@ interface SeriesContainerProps {
 }
 
 const SeriesContainer = ({ title, filter }: SeriesContainerProps) => {
-  const [series, setSeries] = useState<Tv[]>([])
-  const [loading, setLoading] = useState<boolean>(true)
+  const { tvShows: series, loading } = useTv(filter)
 
   useEffect(() => {
-    const loadSeries = async () => {
-      try {
-        const data = await fetchTvList(filter)
-        setSeries(data)
-        setLoading(false)
-      } catch (error) {
-        toast.error('Erro ao carregar séries')
-        setLoading(false)
-      }
-    }
-
-    loadSeries()
-  }, [filter])
+    if (loading) return
+    // O hook useTv já trata erros com console.error
+    // Se necessário toast específico, pode ser adicionado aqui
+  }, [loading])
 
   if (loading) {
     return <div>Carregando séries...</div>
@@ -42,7 +31,7 @@ const SeriesContainer = ({ title, filter }: SeriesContainerProps) => {
       <div className="container">
         <Title>{title}</Title>
         <section className="movies">
-          {series.map((tvShow) => (
+          {series.map((tvShow: Tv) => (
             <MediaCard movie={tvShow} key={tvShow.id} isTvShow={true} />
           ))}
         </section>

@@ -28,6 +28,16 @@ const getBadgeLabel = (badge: BadgeType, index: number): string | null => {
   return null
 }
 
+const getMediaInfo = (movie: Movie | MovieCredits | Tv, isTvShow: boolean) => {
+  const title = isTvShow
+    ? (movie as Tv).name
+    : (movie as Movie | MovieCredits).title
+  const release_date = isTvShow
+    ? (movie as Tv).first_air_date
+    : (movie as Movie | MovieCredits).release_date
+  return { title, release_date }
+}
+
 const MovieCard = ({
   movie,
   badge = null,
@@ -36,14 +46,9 @@ const MovieCard = ({
   isTvShow = false,
 }: MovieCardProps) => {
   const { id } = movie
-  const title = isTvShow
-    ? (movie as Tv).name
-    : (movie as Movie | MovieCredits).title
+  const { title, release_date } = getMediaInfo(movie, isTvShow)
   const poster_path = movie.poster_path
   const vote_average = movie.vote_average
-  const release_date = isTvShow
-    ? (movie as Tv).first_air_date
-    : (movie as Movie | MovieCredits).release_date
   const character = 'character' in movie ? movie.character : null
 
   const year = release_date ? new Date(release_date).getFullYear() : null
