@@ -8,14 +8,16 @@ import { BadgeType } from 'components/MovieCarousel'
 import { API_IMAGE_URL } from 'constants/api'
 import Movie from 'interfaces/movie'
 import MovieCredits from 'interfaces/movieCredits'
+import Tv from 'interfaces/tv'
 
 import './MovieCard.scss'
 
 interface MovieCardProps {
-  movie: Movie | MovieCredits
+  movie: Movie | MovieCredits | Tv
   badge?: BadgeType
   index?: number
   showCharacter?: boolean
+  isTvShow?: boolean
 }
 
 const getBadgeLabel = (badge: BadgeType, index: number): string | null => {
@@ -26,23 +28,37 @@ const getBadgeLabel = (badge: BadgeType, index: number): string | null => {
   return null
 }
 
+const getMediaInfo = (movie: Movie | MovieCredits | Tv, isTvShow: boolean) => {
+  const title = isTvShow
+    ? (movie as Tv).name
+    : (movie as Movie | MovieCredits).title
+  const release_date = isTvShow
+    ? (movie as Tv).first_air_date
+    : (movie as Movie | MovieCredits).release_date
+  return { title, release_date }
+}
+
 const MovieCard = ({
   movie,
   badge = null,
   index = 0,
   showCharacter = false,
+  isTvShow = false,
 }: MovieCardProps) => {
-  const { id, title, poster_path, vote_average, release_date } = movie
+  const { id } = movie
+  const { title, release_date } = getMediaInfo(movie, isTvShow)
+  const poster_path = movie.poster_path
+  const vote_average = movie.vote_average
   const character = 'character' in movie ? movie.character : null
 
   const year = release_date ? new Date(release_date).getFullYear() : null
   const badgeLabel = getBadgeLabel(badge, index)
 
   const posterUrl = poster_path ? `${API_IMAGE_URL}${poster_path}` : null
-
+  const link = isTvShow ? `/series/${id}` : `/movie/${id}`
   return (
     <article className="movie-card">
-      <Link to={`/movie/${id}`} className="movie-card__link">
+      <Link to={link} className="movie-card__link">
         <div className="movie-card__poster">
           {badgeLabel && (
             <span className={`movie-card__badge movie-card__badge--${badge}`}>

@@ -6,7 +6,7 @@
   --border-radius-lg: 16px;
 
   // Colors
-  --color-primary: #C7070E;
+  --color-primary: #c7070e;
   --color-primary-dark: #a00008;
   --color-yellow: #f7d354;
   --color-green: #22c55e;
@@ -194,6 +194,12 @@ body {
 .movies-page,
 .search-page {
   padding-top: 20px;
+}
+
+.movies-page {
+  .movie-card {
+    width: 100%;
+  }
 }
 
 @media (min-width: 768px) {

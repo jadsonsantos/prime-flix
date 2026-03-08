@@ -5,37 +5,39 @@ import Credits from 'components/Credits'
 import Loading from 'components/Loading'
 import { Movie } from 'components/Movie'
 
-import useMovie from 'hooks/useMovie'
+import useMediaDetail from 'hooks/useMediaDetail'
 import scrollToTop from 'utils/scrollToTop '
 
 import './Movie.scss'
 
 const MoviePage = () => {
-  const { loading, movie } = useMovie()
+  const { media, loading, save, isTv } = useMediaDetail()
 
   useEffect(() => {
     scrollToTop()
-  }, [movie])
+  }, [media])
 
   if (loading) {
     return <Loading text="Carregando detalhes..." />
   }
 
+  if (!media) return null
+
   return (
     <div className="movie-page container">
       <Movie.Root>
-        <Movie.Poster movie={movie} />
+        <Movie.Poster movie={media} onSave={save} />
         <Movie.Infos>
-          <Movie.Overview movie={movie} />
-          <Movie.Details movie={movie} />
-          <Movie.Actions movie={movie} />
+          <Movie.Overview movie={media} />
+          <Movie.Details movie={media} isTvShow={isTv} />
+          <Movie.Actions movie={media} isTvShow={isTv} />
         </Movie.Infos>
       </Movie.Root>
 
-      <Credits />
+      <Credits isTvShow={isTv} />
 
-      {movie.belongs_to_collection && (
-        <Collection collection={movie.belongs_to_collection} />
+      {!isTv && media.belongs_to_collection && (
+        <Collection collection={media.belongs_to_collection} />
       )}
     </div>
   )

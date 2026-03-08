@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { MdImageNotSupported } from 'react-icons/md'
 import { Link } from 'react-router-dom'
@@ -9,10 +9,12 @@ import Title from 'components/Title'
 import { API_IMAGE_URL } from 'constants/api'
 import useCredits from 'hooks/useCredits'
 
+import PropTypes from 'prop-types'
+
 import './Credits.scss'
 
-const Credits = () => {
-  const { credits } = useCredits()
+const Credits = ({ isTvShow = false } = {}) => {
+  const { credits } = useCredits(isTvShow)
   const carouselRef = useRef(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
@@ -108,6 +110,10 @@ const Credits = () => {
       </ul>
     </section>
   )
+}
+
+Credits.propTypes = {
+  isTvShow: PropTypes.bool,
 }
 
 export default Credits

@@ -2,24 +2,28 @@ import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
 const useFavorites = () => {
-  const [movies, setMovies] = useState([])
+  const [favorites, setFavorites] = useState([])
 
   useEffect(() => {
-    const myList = localStorage.getItem('@movies')
-    if (myList) setMovies(JSON.parse(myList || []))
+    const myList = localStorage.getItem('@favorites')
+    if (myList) setFavorites(JSON.parse(myList || []))
   }, [])
 
-  const deleteMovie = (id) => {
-    let moviesFilter = movies.filter((item) => {
-      return item.id !== id
+  const deleteFavorite = (id, mediaType) => {
+    let favoritesFilter = favorites.filter((item) => {
+      return !(item.id === id && item.mediaType === mediaType)
     })
 
-    setMovies(moviesFilter)
-    localStorage.setItem('@movies', JSON.stringify(moviesFilter))
-    toast.success('filme removido com sucesso')
+    setFavorites(favoritesFilter)
+    localStorage.setItem('@favorites', JSON.stringify(favoritesFilter))
+    toast.success(
+      mediaType === 'tv'
+        ? 'série removida com sucesso'
+        : 'filme removido com sucesso'
+    )
   }
 
-  return { movies, deleteMovie }
+  return { favorites, deleteFavorite }
 }
 
 export default useFavorites

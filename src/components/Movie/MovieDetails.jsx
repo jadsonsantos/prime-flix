@@ -2,7 +2,7 @@
 
 import formatCurrency from 'utils/formatCurrency'
 
-const MovieDetails = ({ movie }) => {
+const MovieDetails = ({ movie, isTvShow = false }) => {
   const {
     original_title,
     production_companies,
@@ -10,6 +10,24 @@ const MovieDetails = ({ movie }) => {
     budget,
     revenue,
   } = movie
+
+  // Exibir informações específicas de séries
+  const renderTvShowInfo = () => {
+    if (!isTvShow) return null
+
+    return (
+      <>
+        <div className="movie__detail-item">
+          <p className="movie__detail-label">Temporadas:</p>
+          <p className="movie__detail-value">{movie.number_of_seasons}</p>
+        </div>
+        <div className="movie__detail-item">
+          <p className="movie__detail-label">Episódios:</p>
+          <p className="movie__detail-value">{movie.number_of_episodes}</p>
+        </div>
+      </>
+    )
+  }
 
   return (
     <article className="movie__details">
@@ -51,6 +69,7 @@ const MovieDetails = ({ movie }) => {
             </span>
           </div>
         )}
+        {renderTvShowInfo()}
       </div>
     </article>
   )

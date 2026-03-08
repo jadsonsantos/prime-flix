@@ -1,19 +1,18 @@
 import MovieItem from 'components/MovieItem'
 
-import Movie from 'interfaces/movie'
-import MovieCredits from 'interfaces/movieCredits'
+import Favorite from 'interfaces/favorite'
 
 import './Movies.scss'
 
 interface MoviesProps {
-  movies: Movie[] | MovieCredits[]
+  movies: Favorite[]
 }
 
 const Movies = ({ movies }: MoviesProps) => {
   return (
     <section className="movies">
       {movies.map((movie) => (
-        <MovieItem movie={movie} key={movie.id} />
+        <MovieItem movie={movie} key={`${movie.mediaType}-${movie.id}`} />
       ))}
     </section>
   )
