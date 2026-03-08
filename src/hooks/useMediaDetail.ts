@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
+import Favorite from 'interfaces/favorite'
 import Movie from 'interfaces/movie'
 import Tv from 'interfaces/tv'
 import getMovie from 'services/getMovie'
 import { fetchTvDetails } from 'services/tvService'
-import { normalizeMovieToFavorite } from 'utils/normalizers'
-import { normalizeTvToFavorite } from 'utils/normalizers'
+import {
+  normalizeMovieToFavorite,
+  normalizeTvToFavorite,
+} from 'utils/normalizers'
 
 type Media = Record<string, unknown> & {
   id?: number
@@ -63,8 +66,13 @@ export const useMediaDetail = () => {
   const navigate = useNavigate()
   const isTv = location.pathname.startsWith('/series')
 
-  const [media, setMedia] = useState<Media | null>(null)
+  const [originalMedia, setOriginalMedia] = useState<Movie | Tv | null>(null)
   const [loading, setLoading] = useState(true)
+
+  const media = useMemo(() => {
+    if (!originalMedia) return null
+    return isTv ? normalizeTvToMedia(originalMedia as Tv) : originalMedia
+  }, [originalMedia, isTv])
 
   useEffect(() => {
     const load = async () => {
@@ -73,10 +81,10 @@ export const useMediaDetail = () => {
         setLoading(true)
         if (isTv) {
           const data = await fetchTvDetails(id)
-          setMedia(normalizeTvToMedia(data as Tv))
+          setOriginalMedia(data)
         } else {
           const { data } = await getMovie(id)
-          setMedia(data)
+          setOriginalMedia(data)
         }
       } catch {
         navigate('/', { replace: true })
@@ -89,16 +97,13 @@ export const useMediaDetail = () => {
   }, [id, isTv, navigate])
 
   const save = () => {
-    if (!media) return
+    if (!originalMedia) return
 
     const myList = localStorage.getItem('@favorites')
-    const savedFavorites = JSON.parse(myList ?? '[]') as Array<{
-      id: number
-      mediaType: string
-    }>
+    const savedFavorites = JSON.parse(myList ?? '[]') as Favorite[]
     const mediaType = isTv ? 'tv' : 'movie'
     const hasFavorite = savedFavorites.some(
-      (item) => item.id === media.id && item.mediaType === mediaType
+      (item) => item.id === originalMedia.id && item.mediaType === mediaType
     )
 
     if (hasFavorite) {
@@ -109,8 +114,8 @@ export const useMediaDetail = () => {
     }
 
     const item = isTv
-      ? normalizeTvToFavorite(media as unknown as Tv)
-      : normalizeMovieToFavorite(media as unknown as Movie)
+      ? normalizeTvToFavorite(originalMedia as Tv)
+      : normalizeMovieToFavorite(originalMedia as Movie)
     savedFavorites.push(item)
     localStorage.setItem('@favorites', JSON.stringify(savedFavorites))
     toast.success(isTv ? 'série salva com sucesso' : 'filme salvo com sucesso')

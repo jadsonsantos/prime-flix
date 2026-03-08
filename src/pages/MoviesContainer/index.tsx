@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import Loading from 'components/Loading'
-import Movies from 'components/Movies'
+import MovieCard from 'components/MovieCard'
 import Title from 'components/Title'
 
 import { useMoviesContext } from 'contexts/MoviesContext'
@@ -28,7 +28,13 @@ const MoviesContainer = ({ title, filter }: MoviesContainerProps) => {
         ) : (
           <>
             <Title>{title}</Title>
-            {movies.length > 0 && <Movies movies={movies} />}
+            {movies.length > 0 && (
+              <section className="movies">
+                {movies.map((movie) => (
+                  <MovieCard key={movie.id} movie={movie} />
+                ))}
+              </section>
+            )}
           </>
         )}
       </div>
